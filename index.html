@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de confidentialité — Shift Alarm</title>
+  <style>
+    body {
+      font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      color: #1a1a2e;
+      line-height: 1.65;
+      background: #fafafa;
+    }
+    h1 {
+      color: #FFB347;
+      border-bottom: 3px solid #FFB347;
+      padding-bottom: 10px;
+      font-size: 28px;
+    }
+    h2 {
+      color: #1e3a8a;
+      margin-top: 30px;
+      font-size: 20px;
+    }
+    h3 {
+      color: #1e293b;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    p, li {
+      font-size: 15px;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    .meta {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    .ok {
+      background: #d1fae5;
+      border-left: 4px solid #10b981;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+    code {
+      background: #f1f5f9;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      color: #94a3b8;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Politique de confidentialité — Shift Alarm</h1>
+
+<p class="meta">
+  <strong>Dernière mise à jour :</strong> 8 juin 2026<br>
+  <strong>Application :</strong> Shift Alarm v2.0<br>
+  <strong>Éditeur :</strong> KILALI Noredine — <a href="mailto:kilalinoredine@gmail.com">kilalinoredine@gmail.com</a>
+</p>
+
+<h2>1. En résumé</h2>
+
+<div class="ok">
+  <strong>Shift Alarm ne collecte AUCUNE donnée personnelle.</strong><br>
+  Tout reste sur votre téléphone : votre planning, vos shifts, vos préférences.<br>
+  Aucune connexion internet n'est requise pour faire fonctionner l'application.
+</div>
+
+<h2>2. Données stockées sur votre appareil</h2>
+
+<p>
+  Shift Alarm enregistre les informations suivantes <strong>uniquement</strong> dans
+  la mémoire locale de votre téléphone (espace privé de l'application) :
+</p>
+
+<ul>
+  <li><strong>Vos shifts personnalisés</strong> : noms, couleurs, horaires de réveil, horaires de prise de poste.</li>
+  <li><strong>Votre planning annuel</strong> : pour chaque jour de l'année, le shift assigné.</li>
+  <li><strong>Vos jours de congé</strong> : dates marquées comme congés.</li>
+  <li><strong>Vos préférences</strong> : son d'alarme sélectionné, jours fériés activés/désactivés.</li>
+</ul>
+
+<p>
+  Ces données sont stockées via le mécanisme <code>AsyncStorage</code> d'Android,
+  uniquement accessible par l'application Shift Alarm. Aucun autre programme,
+  aucun serveur, aucun tiers n'y a accès.
+</p>
+
+<h2>3. Données transmises à des tiers</h2>
+
+<p><strong>Aucune.</strong></p>
+
+<p>
+  Shift Alarm ne contient :
+</p>
+
+<ul>
+  <li>❌ Aucun service d'analyse (Google Analytics, Firebase Analytics, etc.)</li>
+  <li>❌ Aucun tracker publicitaire</li>
+  <li>❌ Aucun SDK marketing</li>
+  <li>❌ Aucune connexion à un serveur tiers</li>
+  <li>❌ Aucun partage de données avec qui que ce soit</li>
+</ul>
+
+<p>
+  L'application fonctionne <strong>100 % hors-ligne</strong>. Elle ne demande
+  pas la permission INTERNET au système Android.
+</p>
+
+<h2>4. Permissions Android utilisées</h2>
+
+<p>L'application demande les permissions suivantes, et uniquement pour les usages décrits :</p>
+
+<ul>
+  <li>
+    <strong>POST_NOTIFICATIONS</strong> — Afficher les notifications d'alarme à
+    l'heure programmée. Sans cette permission, le réveil ne peut pas sonner.
+  </li>
+  <li>
+    <strong>USE_EXACT_ALARM / SCHEDULE_EXACT_ALARM</strong> — Programmer des
+    alarmes à la minute près. Indispensable pour un réveil précis.
+  </li>
+  <li>
+    <strong>WAKE_LOCK</strong> — Réveiller l'écran à l'heure de l'alarme.
+  </li>
+  <li>
+    <strong>VIBRATE</strong> — Faire vibrer le téléphone en plus du son d'alarme.
+  </li>
+  <li>
+    <strong>RECEIVE_BOOT_COMPLETED</strong> — Reprogrammer les alarmes après un
+    redémarrage du téléphone, pour que vous ne ratiez pas votre réveil suite à
+    un reboot la veille.
+  </li>
+</ul>
+
+<h2>5. Cookies et identifiants</h2>
+
+<p>
+  Shift Alarm n'utilise <strong>aucun cookie</strong> (concept inapplicable à une
+  application mobile native) et ne lit ni ne stocke aucun identifiant publicitaire
+  Android (AAID), aucun identifiant de l'appareil (IMEI, Android ID), aucun numéro
+  de téléphone, aucun contact, aucune localisation.
+</p>
+
+<h2>6. Vos droits</h2>
+
+<p>
+  Comme aucune donnée n'est collectée par l'éditeur ou un tiers, les questions de
+  consentement, de rectification ou de suppression à distance ne s'appliquent pas.
+  Vous gardez en permanence le contrôle total de vos données :
+</p>
+
+<ul>
+  <li>
+    <strong>Consulter vos données</strong> : ouvrez simplement l'application.
+  </li>
+  <li>
+    <strong>Modifier vos données</strong> : utilisez les écrans Paramètres et Planning.
+  </li>
+  <li>
+    <strong>Effacer vos données</strong> : menu Paramètres → "Tout supprimer et
+    recommencer". Vous pouvez aussi désinstaller l'application : toutes les
+    données sont supprimées avec elle.
+  </li>
+</ul>
+
+<h2>7. Public visé</h2>
+
+<p>
+  Shift Alarm est destinée aux adultes (18+) exerçant une activité professionnelle
+  en horaires postés ou décalés. L'application n'est pas conçue ni promue pour les
+  enfants de moins de 13 ans.
+</p>
+
+<h2>8. Modifications de cette politique</h2>
+
+<p>
+  Cette politique peut évoluer si l'application gagne de nouvelles fonctionnalités
+  (par exemple : une future synchronisation cloud optionnelle). Toute modification
+  sera annoncée :
+</p>
+
+<ul>
+  <li>Sur cette page web (date de mise à jour modifiée).</li>
+  <li>Dans les notes de version Play Store.</li>
+  <li>Si la modification est substantielle, par une notification dans l'application.</li>
+</ul>
+
+<h2>9. Contact</h2>
+
+<p>
+  Pour toute question concernant cette politique de confidentialité ou
+  l'application Shift Alarm :
+</p>
+
+<p>
+  📧 <a href="mailto:kilalinoredine@gmail.com">kilalinoredine@gmail.com</a>
+</p>
+
+<p>
+  Vous pouvez aussi consulter la section "Aide & Infos" directement dans l'application.
+</p>
+
+<h2>10. Cadre juridique</h2>
+
+<p>
+  Cette politique est rédigée en conformité avec le Règlement Général sur la
+  Protection des Données (RGPD — Règlement UE 2016/679) et la loi française
+  Informatique et Libertés modifiée. L'éditeur étant établi en France, le droit
+  français s'applique.
+</p>
+
+<p>
+  Autorité de contrôle : Commission Nationale de l'Informatique et des Libertés (CNIL) —
+  <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.
+</p>
+
+<footer>
+  Shift Alarm — Conçu pour ceux qui ne dorment pas comme tout le monde.
+</footer>
+
+</body>
+</html>
