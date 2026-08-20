@@ -235,42 +235,120 @@ footer.end p{margin:0 0 10px}
 <header class="mast">
   <p class="eyebrow">Audit de conformité · Droit du numérique FR / UE</p>
   <h1>Registre de conformité CommandeFacileVite</h1>
-  <p class="lede">Contrôle des dix points demandés, sur la base des textes en vigueur au 20 août 2026. Aucune pièce contractuelle de l'éditeur n'ayant été transmise, ce document vaut grille d'audit à instruire, non constat de non-conformité.</p>
+  <p class="lede">Contrôle des dix points demandés, sur la base des textes en vigueur au 20 août 2026. <strong>Révision 2</strong> : le profil de l'éditeur et l'inventaire des outils tiers ont été communiqués. Le risque le plus lourd du dossier est levé, trois obligations nouvelles apparaissent. Les pièces contractuelles restent non transmises.</p>
   <dl class="facts">
-    <div><dt>Date d'analyse</dt><dd>20 août 2026</dd></div>
-    <div><dt>Pièces reçues</dt><dd>0 sur 33 attendues</dd></div>
-    <div><dt>Points contrôlés</dt><dd>86, sur 19 régimes</dd></div>
-    <div><dt>Qualification RGPD</dt><dd>Double casquette RT / ST</dd></div>
+    <div><dt>Structure</dt><dd>Entreprise individuelle</dd></div>
+    <div><dt>Modèle</dt><dd>Abonnement seul, 0 % commission</dd></div>
+    <div><dt>Lignes d'audit</dt><dd>92, sur 19 régimes</dd></div>
+    <div><dt>Encaissement consommateur</dt><dd>Aucun</dd></div>
+    <div><dt>Sous-traitants identifiés</dt><dd>5 sur 5</dd></div>
     <div><dt>Échéance la plus proche</dt><dd>1<sup>er</sup> sept. 2026 (12 j)</dd></div>
   </dl>
 </header>
 
-<div class="alert">
-  <h3>Constat préalable — périmètre réel de l'analyse</h3>
-  <p>Trois limites doivent être posées avant toute lecture du registre ci-dessous.</p>
-  <ul>
-    <li><b>Aucun document CommandeFacileVite n'a été joint.</b> Le seul fichier présent dans l'espace de travail est <code>index.html</code>, politique de confidentialité de <em>Shift Alarm</em>, application Android de réveil hors-ligne éditée par KILALI Noredine. Elle est sans rapport avec le SaaS audité. Elle fait l'objet d'une annexe distincte, à titre subsidiaire.</li>
-    <li><b>Quatre variables du brief sont restées à l'état de gabarit</b> : structure juridique <code>[SASU / auto-entreprise / SARL]</code>, modèle de revenu <code>[abonnements / commission]</code>, prestataire de paiement <code>[Stripe / SumUp / autre]</code>, et la liste d'outils tiers <code>[liste-les ici]</code> est vide. Or ces quatre variables commandent respectivement les mentions légales, la qualification au regard du droit des paiements, le régime de la sous-traitance ultérieure et la cartographie des transferts hors UE.</li>
-    <li><b>Conséquence méthodologique.</b> Conformément à votre consigne, aucun point n'est présumé conforme ni non conforme. Tout point dépendant d'une pièce absente est classé <span class="pill s-verif">À vérifier</span>. Le niveau de risque affiché est alors le <em>risque encouru si la lacune est avérée</em> — c'est une hiérarchisation d'instruction, pas une constatation. Seules l'annexe Shift Alarm et les points de droit objectifs (calendriers légaux, seuils, textes applicables) portent un statut ferme.</li>
-  </ul>
+<div class="alert info">
+  <h3>Révision 2 — ce que vos réponses établissent</h3>
+  <p>Quatre données déterminantes ont été communiquées : entreprise individuelle, abonnement seul sans commission, aucun encaissement côté consommateur, et cinq outils tiers — Firebase, Analytics, Brevo, Abby, SumUp. Elles permettent de convertir une partie des lignes « À vérifier » en constats fermes.</p>
+  <p>Ce qui demeure absent : les pièces contractuelles elles-mêmes, et un fait de qualification qui commande à lui seul quatre régimes — <strong>marque blanche ou annuaire multi-restaurants</strong>. Les lignes qui en dépendent restent en « À vérifier ».</p>
 </div>
 
-<div class="alert info">
-  <h3>Trois points ne peuvent pas attendre l'instruction du reste</h3>
-  <ul>
-    <li><b>Facturation électronique — 12 jours.</b> L'obligation de <em>réception</em> de factures électroniques s'impose à tout assujetti à la TVA au 1<sup>er</sup> septembre 2026, sans exception de taille, et suppose d'avoir contractualisé avec une plateforme de dématérialisation partenaire immatriculée. Le portail public n'assure plus de service gratuit d'échange.</li>
-    <li><b>Qualification au regard du droit des paiements.</b> Si les fonds des consommateurs transitent, même brièvement, par un compte à votre nom avant reversement au restaurateur, vous fournissez un service de paiement au sens de l'art. L.314-1 CMF. L'exercice sans agrément est un délit — 3 ans d'emprisonnement et 375 000 € (art. L.572-4 CMF). Ce point conditionne la viabilité du modèle « commission » et doit être tranché par un avocat.</li>
-    <li><b>Contrat de sous-traitance article 28.</b> L'absence de contrat écrit avec chacun de vos clients restaurateurs est, à elle seule, un manquement relevant du plafond haut de l'art. 83-4 a) RGPD : 10 M€ ou 2 % du chiffre d'affaires annuel mondial. C'est la lacune la plus fréquente chez les éditeurs SaaS en phase d'amorçage, et la plus simple à corriger.</li>
-  </ul>
+<div class="alert">
+  <h3>Le point le plus lourd du dossier est levé</h3>
+  <p>L'absence totale d'encaissement côté consommateur écarte la qualification de prestataire de services de paiement. Aucun fonds appartenant à un tiers ne transite par vous : vous n'exécutez pas d'opération de paiement pour compte d'autrui au sens de l'art. L.314-1 II CMF. Le risque pénal de trois ans d'emprisonnement et 375 000 € qui figurait en tête du plan d'action <strong>disparaît</strong>, de même que l'exposition aux données de carte bancaire, à l'authentification forte et au régime des rétrofacturations.</p>
+  <p>Une réserve, et une seule : cette conclusion suppose que <strong>SumUp serve à encaisser vos abonnements</strong>, ce qui fait de vous un commerçant accepteur ordinaire. Si SumUp sert en réalité à encaisser les consommateurs pour le compte des restaurateurs, l'analyse est à rouvrir intégralement. Confirmez cet usage.</p>
 </div>
 
 <div class="tally">
-  <div class="t-h"><b>36</b><span>Risque élevé</span></div>
-  <div class="t-m"><b>38</b><span>Risque moyen</span></div>
-  <div class="t-l"><b>12</b><span>Risque faible</span></div>
-  <div><b>11</b><span>Avis d'avocat requis</span></div>
+  <div class="t-h"><b>34</b><span>Risque élevé</span></div>
+  <div class="t-m"><b>40</b><span>Risque moyen</span></div>
+  <div class="t-l"><b>18</b><span>Risque faible</span></div>
+  <div class="t-l"><b>7</b><span>Points levés en rév. 2</span></div>
+  <div><b>7</b><span>Avis d'avocat requis</span></div>
   <div><b>33</b><span>Documents manquants</span></div>
 </div>
+
+<section id="delta">
+  <div class="sec-head"><span class="sec-num">Δ</span><h2>Ce que vos réponses changent</h2></div>
+  <p class="sec-note">Trois mouvements distincts. Des risques tombent, d'autres apparaissent du fait de l'entreprise individuelle, et cinq sous-traitants entrent dans le périmètre. Le détail ligne à ligne figure dans les rubriques d'origine, mises à jour.</p>
+
+  <h3 class="sub">Levé — sept points sortent du dossier ou changent de nature</h3>
+  <ul class="doc">
+    <li><b>Qualification de prestataire de services de paiement — écartée</b><span>Aucun fonds de tiers ne transite par vous. Le risque pénal disparaît, sous la seule réserve de l'usage réel de SumUp. C'était le point le plus lourd du dossier et il quitte le plan d'action.</span></li>
+    <li><b>Données de carte bancaire — hors périmètre</b><span>Sans encaissement consommateur, le référentiel CNIL sur le paiement et la norme PCI-DSS ne vous concernent plus qu'au titre de vos propres encaissements d'abonnement, portés par SumUp.</span></li>
+    <li><b>Authentification forte et régime des opérations de paiement — hors champ</b><span>La directive sur les services de paiement ne vous est pas applicable en tant que fournisseur.</span></li>
+    <li><b>Accessibilité numérique — obligation légale probablement levée</b><span>Une entreprise individuelle de moins de dix personnes et sous deux millions d'euros relève de l'exemption de micro-entreprise prestataire de services. L'obligation tombe ; l'argument commercial, lui, reste entier et intact.</span></li>
+    <li><b>Règlement sur les services numériques — dispense des obligations de plateforme</b><span>La qualité de micro-entreprise vous dispense des sections relatives aux plateformes en ligne et du rapport de transparence. Subsistent les obligations d'hébergeur, peu coûteuses.</span></li>
+    <li><b>Règlement plateformes-entreprises — dispense partielle</b><span>Le système interne de traitement des plaintes et la désignation de médiateurs ne s'imposent pas à une petite entreprise. Les obligations de fond demeurent et restent bon marché à satisfaire.</span></li>
+    <li><b>Obligation déclarative des opérateurs de plateforme — très improbable</b><span>Sans commission ni encaissement, il devient difficile de vous qualifier d'intermédiaire percevant une contrepartie. La confirmation dépend du dernier fait manquant : marque blanche ou annuaire.</span></li>
+  </ul>
+
+  <h3 class="sub">Nouveau — ce que l'entreprise individuelle ajoute</h3>
+  <ul class="doc">
+    <li><b>Votre domicile personnel devient une mention légale obligatoire</b><span>En personne physique, la LCEN impose nom, prénom et domicile. Il n'existe pas de dispense. Le contournement légitime est la domiciliation commerciale, à arbitrer avant publication.</span></li>
+    <li><b>La mention « EI » est obligatoire sur tous vos supports</b><span>Dénomination composée de votre nom précédé ou suivi de « EI » ou « entrepreneur individuel », sur le site, les conditions générales, les factures et la correspondance. Manquement sanctionné par une contravention de quatrième classe. Obligation récente, très largement ignorée.</span></li>
+    <li><b>Le patrimoine professionnel répond seul, mais il répond</b><span>La séparation légale des patrimoines protège vos biens personnels depuis mai 2022. En contrepartie, une amende administrative ou une condamnation s'impute sur l'outil de travail. L'assurance de responsabilité civile professionnelle passe du confort à la nécessité.</span></li>
+    <li><b>Exposition réaliste en cas de sanction CNIL</b><span>La procédure de sanction simplifiée, conçue pour les petites structures, plafonne à vingt mille euros. C'est l'ordre de grandeur à retenir plutôt que les plafonds théoriques — étant entendu que pour une entreprise individuelle, cette somme n'a pas la même portée que pour une société.</span></li>
+    <li><b>Régime de TVA à confirmer</b><span>Le seuil de la franchise en base a fait l'objet de réformes et de suspensions successives. Point à vérifier à date auprès de votre expert-comptable : il commande la mention obligatoire sur vos factures. Précision utile, car l'erreur est fréquente : être en franchise ne vous sort pas du champ de la facturation électronique, un assujetti non redevable restant un assujetti.</span></li>
+  </ul>
+
+  <h3 class="sub">Inchangé — et toujours prioritaire</h3>
+  <ul class="doc">
+    <li><b>Réception des factures électroniques au 1<sup>er</sup> septembre 2026</b><span>Aucune des réponses fournies ne modifie cette échéance, qui ne connaît pas de seuil de taille. Elle dépend désormais d'une question précise : le statut d'Abby.</span></li>
+    <li><b>Contrat de sous-traitance avec chaque restaurateur</b><span>Le modèle par abonnement ne change rien : vous traitez les données des consommateurs pour le compte du restaurateur.</span></li>
+    <li><b>Règles de sécurité Firebase</b><span>Confirmé comme votre principal risque technique, désormais que la pile est connue.</span></li>
+    <li><b>Bandeau cookies — désormais certainement nécessaire</b><span>L'usage d'Analytics est confirmé. La question n'est plus de savoir si un bandeau conforme est requis, mais s'il l'est aussi dans l'interface servie à vos clients.</span></li>
+  </ul>
+</section>
+
+<section id="outils">
+  <div class="sec-head"><span class="sec-num">⚙</span><h2>Audit des cinq outils tiers</h2></div>
+  <p class="sec-note">Chacun de ces outils est un sous-traitant ultérieur au sens de l'article 28-4 du RGPD. Chacun doit figurer dans une liste annexée à votre contrat de sous-traitance, être couvert par un accord de traitement de données, et voir ses transferts documentés. Deux d'entre eux appellent une vérification à échéance courte.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Outil</th><th class="c-obl">Rôle et données traitées</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Actions prioritaires</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Outil">Firebase<br><span class="ref">Google</span></td>
+        <td data-l="Rôle et données traitées">Hébergement, base de données, authentification, notifications. Traite à la fois vos propres données et celles des consommateurs finaux, pour lesquelles vous agissez comme sous-traitant du restaurateur.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Quatre actions. Accepter et archiver l'avenant de traitement de données de Google Cloud, avec sa date et sa version. Inventorier les services utilisés et leur région : la résidence se règle service par service, et <strong>Firebase Authentication n'offre pas de résidence européenne</strong>. Auditer les règles de sécurité — c'est votre principal risque technique. Inscrire Google en tête de votre liste de sous-traitants ultérieurs.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-4, 32 et 44 à 46 RGPD ; décision d'exécution (UE) 2023/1795 ; décision d'exécution (UE) 2021/914</span></td>
+      </tr>
+      <tr>
+        <td data-l="Outil">Analytics<br><span class="ref">Google</span></td>
+        <td data-l="Rôle et données traitées">Mesure d'audience. Identifiants de traceurs, adresse IP, parcours de navigation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Le consentement est requis : Analytics ne remplit pas les critères d'exemption de la mesure d'audience retenus par la CNIL — finalité strictement limitée, absence de recoupement, absence de suivi inter-sites. La balise ne doit donc pas se charger avant le clic. Deux précisions à apporter. D'abord, <strong>Analytics est-il aussi chargé dans l'interface de commande</strong> ? Si oui, le responsable de traitement y est le restaurateur, il vous faut son instruction documentée et un bandeau conforme sur chaque interface — et un seul défaut de paramétrage par défaut expose l'ensemble de votre base clients d'un même geste. Ensuite, préciser s'il s'agit de Google Analytics 4 ou de l'analytique intégrée à Firebase : le paramétrage du consentement diffère.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 82 de la loi n° 78-17 ; délib. CNIL n° 2020-091 et recommandation n° 2020-092 du 17 septembre 2020 ; art. 28-3 a) RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Outil">Brevo</td>
+        <td data-l="Rôle et données traitées">Courriels transactionnels et prospection, éventuellement messages courts. Adresses des restaurateurs et des prospects, et possiblement des consommateurs pour les confirmations de commande.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Le choix est favorable : éditeur français, hébergement européen, ce qui simplifie le volet transferts — vérifier néanmoins sa liste de sous-traitants ultérieurs, qui peut comporter des acteurs hors Union. Trois points de fond. Accepter l'accord de traitement de données et l'archiver. Traiter le <strong>pixel de suivi d'ouverture</strong> : c'est une inscription d'information dans le terminal au sens de l'article 82, elle appelle un consentement ou une désactivation — point systématiquement omis. Enfin, ne pas mélanger dans une même base les courriels de commande, où vous agissez pour le compte du restaurateur, et vos courriels de prospection, où vous êtes responsable : les régimes, les bases légales et les durées diffèrent.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-4 et art. 6-1 f) RGPD ; art. L.34-5 CPCE ; art. 82 de la loi n° 78-17</span></td>
+      </tr>
+      <tr>
+        <td data-l="Outil">Abby</td>
+        <td data-l="Rôle et données traitées">Facturation, comptabilité et déclarations. Identité, coordonnées et données de facturation de vos clients restaurateurs.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">C'est ici que se joue votre échéance à douze jours. <strong>Vérifier si Abby est immatriculée comme plateforme de dématérialisation partenaire, ou raccordée à l'une d'elles</strong>, et le confirmer auprès de l'éditeur plutôt que de le supposer : c'est la réponse opérationnelle à l'obligation de réception. Si la réponse est négative, prévoir un raccordement complémentaire sans attendre. Vérifier ensuite le gabarit de facture, sur trois points précis : les mentions du Code de commerce — date de règlement, taux des pénalités, indemnité forfaitaire de quarante euros — que les outils conçus pour les indépendants omettent souvent en partant d'un modèle destiné aux particuliers ; la mention « EI » ; et la collecte du numéro d'identification de chaque client, qui conditionnera le routage des factures. Conclure enfin l'accord de traitement de données.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 289 bis CGI ; art. L.441-9 C. com ; art. 242 nonies A ann. II CGI ; art. R.123-237 C. com ; art. 28-4 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Outil">SumUp</td>
+        <td data-l="Rôle et données traitées">Encaissement — de vos abonnements selon toute vraisemblance. Coordonnées de paiement de vos clients.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Confirmer d'abord l'usage, car il commande une conclusion majeure de ce rapport : si SumUp encaisse vos abonnements, vous êtes un commerçant accepteur ordinaire et la qualification de prestataire de paiement est définitivement écartée ; s'il encaisse des consommateurs pour le compte des restaurateurs, toute l'analyse est à rouvrir. Identifier ensuite l'entité contractante — l'entité européenne établie en Lituanie, ou l'entité britannique, auquel cas le transfert repose sur une décision d'adéquation dont la validité est <strong>à vérifier à date</strong>, ce cadre ayant fait l'objet de prorogations. Enfin, une remarque pratique plutôt que juridique : SumUp est d'abord conçu pour l'encaissement de proximité. Si vos abonnements sont encaissés au coup par coup plutôt que par prélèvement récurrent, votre recouvrement se dégrade — et les clauses de pénalités de retard cessent d'être une formalité pour devenir un outil réellement utile.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.314-1 II CMF ; art. 28-4 et 44 à 46 RGPD ; décision d'exécution (UE) 2021/1772 et ses prorogations, à vérifier à date</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
 
 <section id="s1">
   <div class="sec-head"><span class="sec-num">01</span><h2>Mentions légales (LCEN)</h2></div>
@@ -280,11 +358,19 @@ footer.end p{margin:0 0 10px}
     <tbody>
       <tr>
         <td data-l="Document">Mentions légales</td>
-        <td data-l="Obligation">Identification de l'éditeur : si personne morale, dénomination, forme, siège social, capital social, numéro RCS ; si personne physique (auto-entreprise), nom, prénom, domicile, numéro RM ou RCS. Téléphone dans les deux cas.</td>
+        <td data-l="Obligation">Identification de l'éditeur. En entreprise individuelle, l'éditeur est une personne physique : <strong>nom, prénom et domicile</strong>, numéro de téléphone, et numéro d'immatriculation au registre national des entreprises.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
         <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Publier une page « Mentions légales » accessible depuis chaque page. Renseigner d'abord la forme sociale : en auto-entreprise, le <strong>domicile personnel</strong> devient obligatoirement public, ce qui est souvent un motif de bascule vers une société.</td>
+        <td data-l="Action corrective">Le régime de la personne physique s'applique : votre <strong>domicile personnel devient une mention publique obligatoire</strong>, sans dispense possible. Deux options avant publication : accepter cette publicité, ou souscrire une domiciliation commerciale et déclarer cette adresse comme adresse d'établissement. Arbitrer maintenant, car revenir sur une adresse déjà publiée est sans effet.</td>
         <td data-l="Texte de référence"><span class="ref">Art. 6-III-1 a) et b), loi n° 2004-575 du 21 juin 2004 (LCEN)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Tous supports</td>
+        <td data-l="Obligation">Usage d'une dénomination comportant votre nom précédé ou suivi de la mention « EI » ou « entrepreneur individuel », sur l'ensemble des documents et correspondances à usage professionnel.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Obligation issue de la réforme du statut de l'entrepreneur individuel, entrée en vigueur en 2022 et très largement ignorée. Elle couvre le site, les mentions légales, les conditions générales, les factures, les devis et la correspondance commerciale. Vérifier notamment le gabarit de facture produit par Abby, qui ne l'ajoute pas systématiquement.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.526-22 C. com, issu de la loi n° 2022-172 du 14 février 2022 ; art. R.123-237 C. com ; décret n° 2022-725 du 28 avril 2022 ; sanction : contravention de 4<sup>e</sup> classe</span></td>
       </tr>
       <tr>
         <td data-l="Document">Mentions légales</td>
@@ -591,9 +677,9 @@ footer.end p{margin:0 0 10px}
       <tr>
         <td data-l="Document">Paiement</td>
         <td data-l="Obligation">Données de carte bancaire : non-conservation du cryptogramme, encadrement de la conservation du numéro.</td>
-        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
-        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Vérifier qu'aucune donnée de carte ne transite ni ne réside dans votre infrastructure : recourir aux champs hébergés ou à la redirection du prestataire, ne manipuler que des jetons. Le cryptogramme visuel ne peut jamais être conservé, même le temps d'une transaction.</td>
+        <td data-l="Statut"><span class="pill s-na">Hors périmètre</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Point désormais écarté : sans encaissement côté consommateur, aucune donnée de carte n'entre dans votre infrastructure. Reste à confirmer, pour vos propres encaissements d'abonnement, que SumUp opère en environnement hébergé et que vous ne manipulez aucune donnée de carte. Le cryptogramme visuel ne peut en aucun cas être conservé.</td>
         <td data-l="Texte de référence"><span class="ref">Délibération CNIL n° 2018-303 du 6 septembre 2018 (référentiel paiement) ; art. 32 RGPD ; norme PCI-DSS</span></td>
       </tr>
     </tbody>
@@ -643,7 +729,7 @@ footer.end p{margin:0 0 10px}
         <td data-l="Obligation">Contrat art. 28 conclu avec chacun de vos propres sous-traitants ultérieurs, imposant les mêmes obligations.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
         <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Rassembler les avenants de protection des données de chaque fournisseur, vérifier qu'ils ont été effectivement acceptés — chez Google, l'acceptation du <em>Cloud Data Processing Addendum</em> se fait dans la console et se prouve — et les archiver. Vous demeurez pleinement responsable envers le restaurateur des manquements de vos propres fournisseurs.</td>
+        <td data-l="Action corrective">Périmètre désormais connu et fermé : <strong>Firebase, Analytics, Brevo, Abby et SumUp</strong>. Rassembler l'accord de traitement de données de chacun, vérifier qu'il a été effectivement accepté — chez Google, l'acceptation de l'avenant se fait dans la console et se prouve — et les archiver avec leur date et leur version. Ces cinq noms constituent la liste de sous-traitants ultérieurs à annexer au contrat conclu avec vos restaurateurs. Vous demeurez pleinement responsable envers eux des manquements de vos propres fournisseurs. Le détail outil par outil figure en rubrique dédiée.</td>
         <td data-l="Texte de référence"><span class="ref">Art. 28-4 RGPD ; clauses contractuelles types responsable-sous-traitant, décision d'exécution (UE) 2021/915 du 4 juin 2021</span></td>
       </tr>
       <tr>
@@ -792,7 +878,7 @@ footer.end p{margin:0 0 10px}
         <td data-l="Obligation">Information préalable, par finalité, sur l'identité des responsables et la durée de vie des traceurs.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
         <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
-        <td data-l="Action corrective">Dresser l'inventaire réel des traceurs, ce que la liste d'outils tiers laissée vide dans votre demande ne permet pas aujourd'hui. Point d'attention pour votre pile : l'analytique Google, dans ses versions actuelles comme dans sa déclinaison Firebase, ne satisfait pas les critères d'exemption de la mesure d'audience — finalité strictement limitée, absence de recoupement, absence de suivi inter-sites — et requiert donc un consentement.</td>
+        <td data-l="Action corrective">Deux sources de traceurs sont désormais identifiées et appellent toutes deux un consentement. L'analytique Google, dans ses versions actuelles comme dans sa déclinaison Firebase, ne satisfait pas les critères d'exemption de la mesure d'audience — finalité strictement limitée, absence de recoupement, absence de suivi inter-sites. Et le <strong>pixel de suivi d'ouverture des courriels Brevo</strong>, qui constitue une inscription d'information dans le terminal au sens du même article : soit il est désactivé, soit il est consenti. Ce second point est presque toujours omis. Dresser l'inventaire complet par un relevé technique, et non de manière déclarative.</td>
         <td data-l="Texte de référence"><span class="ref">Art. 82 al. 3 de la loi n° 78-17 ; critères d'exemption CNIL relatifs à la mesure d'audience</span></td>
       </tr>
       <tr>
@@ -832,17 +918,17 @@ footer.end p{margin:0 0 10px}
       <tr>
         <td data-l="Document">Service de commande</td>
         <td data-l="Obligation">Accessibilité des services de commerce électronique, applicable depuis le 28 juin 2025.</td>
-        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
-        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Déterminer d'abord si vous relevez de l'exemption de micro-entreprise, qui suppose <strong>cumulativement</strong> moins de 10 personnes occupées et un chiffre d'affaires annuel ou un total de bilan n'excédant pas 2 M€. Attention au faux ami : « micro-entreprise » s'entend ici au sens européen, et non du régime fiscal du micro-entrepreneur.</td>
+        <td data-l="Statut"><span class="pill s-na">Exemption probable</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Une entreprise individuelle satisfait selon toute vraisemblance les deux conditions cumulatives de l'exemption — moins de dix personnes occupées et chiffre d'affaires ou total de bilan n'excédant pas deux millions d'euros — et l'obligation légale tombe. Deux réserves. La notion de micro-entreprise s'entend ici au sens européen et non du régime fiscal : c'est votre effectif et votre chiffre d'affaires qui comptent, pas votre régime d'imposition. Et l'exemption se perd au franchissement du seuil : la consigner par écrit avec les chiffres de l'exercice, et la réexaminer chaque année.</td>
         <td data-l="Texte de référence"><span class="ref">Directive (UE) 2019/882 du 17 avril 2019, art. 2 et art. 4 §5 ; définition art. 3, 23° ; ordonnance n° 2023-859 du 6 septembre 2023 ; décret n° 2023-931 du 9 octobre 2023 ; art. L.412-13 C. conso</span></td>
       </tr>
       <tr>
         <td data-l="Document">Service de commande</td>
         <td data-l="Obligation">Portée réelle de l'exemption.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
-        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Point déterminant, souvent manqué : l'exemption vous bénéficie à vous, pas à vos clients. Un restaurateur ou un groupe de restauration atteignant les seuils est tenu de proposer un service de vente en ligne accessible — or ce service, c'est votre interface. Votre exemption ne le dispense de rien et vous rend, de fait, incapable de le servir en conformité. L'accessibilité devient donc un prérequis commercial dès que vous visez autre chose que des établissements indépendants.</td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Point déterminant, et le seul qui subsiste après l'exemption : celle-ci vous bénéficie à vous, pas à vos clients. Un restaurateur ou un groupe de restauration atteignant les seuils est tenu de proposer un service de vente en ligne accessible — or ce service, c'est votre interface. Votre exemption ne le dispense de rien et vous rend, de fait, incapable de le servir en conformité. L'accessibilité devient donc un prérequis commercial dès que vous visez autre chose que des établissements indépendants.</td>
         <td data-l="Texte de référence"><span class="ref">Directive (UE) 2019/882, art. 2 §2 c)</span></td>
       </tr>
       <tr>
@@ -890,9 +976,9 @@ footer.end p{margin:0 0 10px}
       <tr>
         <td data-l="Document">Facturation</td>
         <td data-l="Obligation">Obligation d'<strong>émission</strong> : 1<sup>er</sup> septembre 2026 pour les grandes entreprises et les entreprises de taille intermédiaire, 1<sup>er</sup> septembre 2027 pour les petites et moyennes entreprises et les microentreprises.</td>
-        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
-        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
-        <td data-l="Action corrective">Déterminer votre catégorie de taille, ce que la structure juridique non renseignée ne permet pas de faire. Dans la quasi-totalité des configurations d'un éditeur en amorçage, l'émission bascule en 2027 — mais la réception, elle, tombe dans douze jours.</td>
+        <td data-l="Statut"><span class="pill s-conf">Échéance 2027</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Une entreprise individuelle relève de la catégorie des microentreprises : votre obligation d'émission est fixée au 1<sup>er</sup> septembre 2027. Rien à faire dans l'immédiat de ce côté — mais la <strong>réception, elle, tombe dans douze jours</strong> et ne connaît aucun seuil. Ne pas confondre les deux échéances.</td>
         <td data-l="Texte de référence"><span class="ref">Art. 289 bis CGI ; art. 91 de la loi n° 2023-1322</span></td>
       </tr>
       <tr>
@@ -932,7 +1018,7 @@ footer.end p{margin:0 0 10px}
         <td data-l="Obligation">Régime de TVA applicable à vos propres prestations.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
         <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
-        <td data-l="Action corrective">Dépend de la structure et du modèle de revenu, non renseignés. Vérifier l'exigibilité de la TVA sur les prestations de services, l'éventuelle option pour les débits, l'application de la franchise en base et sa mention obligatoire, ainsi que le régime applicable si vous facturez des clients établis dans d'autres États membres.</td>
+        <td data-l="Action corrective">À confirmer avec votre expert-comptable : le seuil de la franchise en base a connu des réformes et des suspensions successives, et détermine la mention à porter sur vos factures. Une précision importante, car l'erreur est fréquente : <strong>être en franchise ne vous fait pas sortir du champ de la facturation électronique</strong>, un assujetti non redevable demeurant un assujetti. Vérifier également l'exigibilité de la TVA sur les prestations de services et le régime applicable à d'éventuels clients établis dans d'autres États membres.</td>
         <td data-l="Texte de référence"><span class="ref">Art. 269-2 c) CGI ; art. 293 B CGI ; art. 259 CGI</span></td>
       </tr>
     </tbody>
@@ -948,25 +1034,25 @@ footer.end p{margin:0 0 10px}
       <tr>
         <td data-l="Régime">Droit des paiements</td>
         <td data-l="Obligation">Qualification éventuelle de prestataire de services de paiement.</td>
-        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat impératif</span></td>
-        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Le point le plus lourd du dossier. Si les fonds versés par les consommateurs transitent, même quelques heures, par un compte ouvert à votre nom avant reversement au restaurateur, vous exécutez une opération de paiement pour compte de tiers et devez être agréé établissement de paiement, ou enregistré comme agent d'un prestataire agréé, ou entrer dans une exclusion légale. Les montages de type comptes connectés, dans lesquels le prestataire de paiement est seul teneur des fonds et le reversement automatique, neutralisent le risque — <em>à condition d'être correctement paramétrés</em>. Faire valider le schéma de flux par un avocat en droit bancaire avant toute mise à l'échelle du modèle à la commission.</td>
+        <td data-l="Statut"><span class="pill s-na">Écarté</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Point résolu par vos réponses, et c'est le mouvement le plus important de cette révision. Sans encaissement côté consommateur, aucun fonds appartenant à un tiers ne transite par vous : il n'y a ni acquisition d'ordres de paiement, ni exécution d'opérations pour compte d'autrui, ni détention de fonds. Le risque pénal disparaît, et avec lui la contrainte principale qui pesait sur votre architecture. Une seule réserve à lever, par une confirmation de votre part : <strong>SumUp doit servir à encaisser vos abonnements</strong>, ce qui fait de vous un commerçant accepteur ordinaire. S'il servait à encaisser les consommateurs pour le compte des restaurateurs, l'analyse serait à rouvrir intégralement et le point reviendrait en tête du plan d'action.</td>
         <td data-l="Texte de référence"><span class="ref">Art. L.314-1 II CMF ; art. L.521-1 et L.523-1 CMF ; directive (UE) 2015/2366, art. 3 b) ; sanction art. L.572-4 CMF : 3 ans d'emprisonnement et 375 000 €</span></td>
       </tr>
       <tr>
         <td data-l="Régime">Règlement plateformes-entreprises</td>
         <td data-l="Obligation">Obligations des services d'intermédiation en ligne envers leurs entreprises utilisatrices.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
-        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
-        <td data-l="Action corrective">Applicable si votre interface permet à des professionnels d'offrir des biens à des consommateurs en vue d'une transaction directe — ce qui décrit exactement une solution de commande en ligne. Conséquences concrètes : conditions générales rédigées en termes clairs, préavis de quinze jours avant toute modification, motivation écrite et préavis de trente jours avant toute suspension ou résiliation du compte d'un restaurateur, transparence des critères de classement si vous en opérez un, information sur l'accès aux données. Le système interne de traitement des plaintes et la désignation de médiateurs ne s'imposent pas aux petites entreprises. La clause de résiliation immédiate de vos CGV est très probablement incompatible avec ce régime.</td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">La qualification reste ouverte : le critère n'est pas le mode de rémunération mais le fait de faciliter des transactions directes entre professionnels et consommateurs, ce que fait une interface de commande — le modèle par abonnement ne suffit donc pas à l'écarter. Elle dépend du dernier fait manquant, marque blanche ou annuaire. En qualité de petite entreprise, vous êtes en revanche dispensé du système interne de traitement des plaintes et de la désignation de médiateurs, qui étaient les deux obligations coûteuses. Ne subsistent que des exigences bon marché : conditions générales claires, préavis de quinze jours avant modification, motivation écrite et préavis de trente jours avant suspension ou résiliation d'un compte. <strong>Recommandation : les intégrer directement à vos conditions générales sans attendre la réponse à la question de qualification.</strong> Le coût est marginal, et cela clôt le débat. À défaut, votre clause de résiliation immédiate y demeurerait très probablement contraire.</td>
         <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2019/1150 du 20 juin 2019, art. 3, 4, 5, 9, 11 et 12</span></td>
       </tr>
       <tr>
         <td data-l="Régime">Règlement sur les services numériques</td>
         <td data-l="Obligation">Obligations applicables aux services d'hébergement et aux plateformes en ligne.</td>
         <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
-        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
-        <td data-l="Action corrective">Si vous stockez des contenus fournis par vos clients — fiches, photographies, descriptifs, avis — vous êtes au minimum un service d'hébergement : point de contact unique publié, conditions générales transparentes, mécanisme de notification et d'action, motivation des décisions de retrait. Si l'interface met en relation consommateurs et professionnels, s'ajoutent les obligations de traçabilité des professionnels. Les micro et petites entreprises sont dispensées des obligations propres aux plateformes en ligne.</td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Votre qualité de micro-entreprise vous dispense des obligations propres aux plateformes en ligne, y compris la traçabilité des professionnels et le rapport de transparence — c'est-à-dire de l'essentiel de la charge. Vous stockez néanmoins des contenus fournis par vos clients — fiches, photographies, descriptifs — ce qui vous laisse les obligations de base du service d'hébergement : publier un point de contact, des conditions générales transparentes, un mécanisme permettant de signaler un contenu illicite, et motiver vos décisions de retrait. Quelques paragraphes et une adresse de contact y suffisent.</td>
         <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2022/2065, art. 3 g), 11, 12, 14, 16, 17, 19 et 30 à 32</span></td>
       </tr>
       <tr>
@@ -980,9 +1066,9 @@ footer.end p{margin:0 0 10px}
       <tr>
         <td data-l="Régime">Opérateur de plateforme</td>
         <td data-l="Obligation">Loyauté de l'information, information sur les obligations fiscales et sociales, déclaration annuelle des opérateurs de plateforme.</td>
-        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
-        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
-        <td data-l="Action corrective">Question de qualification, à trancher : un logiciel en marque blanche, où chaque restaurateur exploite son propre canal de vente, n'est en principe pas un opérateur de plateforme ; une place de marché référençant plusieurs établissements l'est, avec obligation déclarative annuelle à déposer avant le 31 janvier. La réponse dépend d'un élément que vous n'avez pas précisé : marque blanche ou annuaire multi-restaurants.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Qualification devenue très improbable. L'obligation déclarative suppose un opérateur qui met en relation des vendeurs et des utilisateurs et qui connaît la contrepartie versée : sans commission ni encaissement, vous ne percevez rien sur les transactions et ne voyez transiter aucun paiement. Confirmer néanmoins par la réponse à la question de la marque blanche, un annuaire multi-restaurants pouvant faire renaître la qualification. Le point ne justifie plus, en l'état, une consultation dédiée : le poser lors de l'examen conjoint des quatre qualifications de plateforme suffit.</td>
         <td data-l="Texte de référence"><span class="ref">Art. L.111-7 C. conso ; art. 242 bis CGI ; art. 1649 ter A CGI ; directive (UE) 2021/514 (DAC7)</span></td>
       </tr>
       <tr>
@@ -1084,52 +1170,52 @@ footer.end p{margin:0 0 10px}
   <p class="sec-note">Priorisation par produit de la gravité de la sanction encourue et de l'imminence de l'échéance, et non par ordre des rubriques contrôlées. Les quatre actions du premier bloc sont indépendantes les unes des autres et peuvent être menées en parallèle.</p>
 
   <div class="pgroup p0">
-    <header><span class="ptag">P0</span><h3>Échéance imminente ou sanction pénale</h3><span class="when">sous 15 jours</span></header>
+    <header><span class="ptag">P0</span><h3>Échéance imminente</h3><span class="when">sous 15 jours</span></header>
     <ol class="plan">
-      <li><b>Contractualiser une plateforme de dématérialisation partenaire et vérifier la capacité de réception</b>
-        L'obligation de réception s'impose dans douze jours à tout assujetti, sans seuil. Vérifier au préalable le calendrier en vigueur, un report par décret restant possible. Collecter en parallèle le SIREN de chaque client.
+      <li><b>Confirmer le statut d'Abby au regard de la facturation électronique</b>
+        Demander à l'éditeur, par écrit, s'il est immatriculé comme plateforme de dématérialisation partenaire ou raccordé à l'une d'elles. C'est la réponse opérationnelle à l'obligation de réception, qui s'impose dans douze jours à tout assujetti sans seuil de taille — franchise en base comprise. Si la réponse est négative, prévoir un raccordement complémentaire immédiatement. Collecter en parallèle le numéro d'identification de chaque client restaurateur.
         <span class="ref">Art. 289 bis CGI ; art. 91 de la loi n° 2023-1322 du 29 décembre 2023</span></li>
-      <li><b>Faire trancher la qualification au regard du droit des paiements</b>
-        Établir le schéma exact des flux financiers et le soumettre à un avocat en droit bancaire. L'exercice illégal de la profession est un délit ; le risque est disqualifiant pour le modèle à la commission et doit être levé avant toute mise à l'échelle.
-        <span class="ref">Art. L.314-1 II et L.572-4 CMF ; directive (UE) 2015/2366, art. 3 b)</span></li>
       <li><b>Auditer les règles de sécurité Firebase</b>
-        Test d'accès non authentifié sur Firestore, la base temps réel et le stockage. Une base de commandes exposée réunit identité, téléphone, adresse et habitudes de consommation : c'est le scénario de violation le plus probable de votre architecture, et le plus rapide à écarter.
+        Test d'accès non authentifié sur la base de données et le stockage. Désormais confirmé comme votre principal risque technique : une base de commandes exposée réunit identité, téléphone, adresse et habitudes de consommation de la clientèle de tous vos restaurateurs à la fois.
         <span class="ref">Art. 32 RGPD ; art. 33 et 34 RGPD en cas de violation</span></li>
       <li><b>Mettre en place une annexe de sous-traitance avec vos clients</b>
-        Intégrer une annexe « protection des données » aux conditions générales pour les nouveaux clients, et proposer un avenant aux clients existants. L'absence de contrat écrit relève du plafond de sanction le plus élevé, et un simple avenant type suffit à sortir de l'infraction.
-        <span class="ref">Art. 28-3 RGPD ; sanction art. 83-4 a)</span></li>
-      <li><b>Publier des mentions légales complètes</b>
-        Action la moins coûteuse du plan, sanctionnée pénalement et vérifiable en trente secondes par un tiers. Requiert au préalable d'arrêter la structure juridique.
-        <span class="ref">Art. 6-III-1 et art. 19 LCEN ; sanction art. 6-VI-1</span></li>
+        Annexe « protection des données » intégrée aux conditions générales pour les nouveaux clients, avenant proposé aux clients existants. La liste des sous-traitants ultérieurs à y annexer est désormais établie : Firebase, Analytics, Brevo, Abby, SumUp.
+        <span class="ref">Art. 28-3 et 28-2 RGPD ; sanction art. 83-4 a)</span></li>
+      <li><b>Arbitrer la domiciliation, puis publier les mentions légales</b>
+        L'arbitrage précède la publication : en entreprise individuelle, votre domicile personnel devient une mention publique obligatoire sans dispense possible. Souscrire une domiciliation commerciale si vous ne souhaitez pas cette publicité — la décision est difficilement réversible une fois l'adresse en ligne. Ajouter au passage la mention « EI » sur l'ensemble de vos supports.
+        <span class="ref">Art. 6-III-1 et art. 19 LCEN ; art. L.526-22 et R.123-237 C. com</span></li>
     </ol>
   </div>
 
   <div class="pgroup p1">
     <header><span class="ptag">P1</span><h3>Socle contractuel et documentaire</h3><span class="when">sous 1 mois</span></header>
     <ol class="plan">
-      <li><b>Rédiger ou refondre les conditions générales B2B</b>
-        En intégrant dès la première version les éléments que la plupart des modèles omettent : délais et pénalités de paiement, indemnité forfaitaire, limitation de responsabilité calibrée pour résister à l'article 1170 du Code civil, licence et propriété des données, réversibilité et changement de fournisseur, niveau de service, préavis de modification compatible avec le règlement plateformes-entreprises.
+      <li><b>Rédiger les conditions générales B2B</b>
+        En y intégrant dès la première version ce que la plupart des modèles omettent : délais et pénalités de paiement, indemnité forfaitaire, limitation de responsabilité calibrée pour résister à l'article 1170 du Code civil, licence et propriété des données, réversibilité et changement de fournisseur. Ajouter d'emblée les trois exigences du règlement plateformes-entreprises — préavis de quinze jours avant modification, motivation écrite et préavis de trente jours avant suspension ou résiliation : leur coût est marginal et elles closent une question de qualification qui resterait sinon ouverte.
         <span class="ref">Art. L.441-1, L.441-9 et L.441-10 C. com ; art. 1170 et 1171 C. civ ; règlement (UE) 2023/2854 ; règlement (UE) 2019/1150</span></li>
       <li><b>Produire les deux politiques de confidentialité et les deux registres</b>
-        Un jeu documentaire par casquette. C'est la traduction opérationnelle de l'analyse que vous avez vous-même posée, et l'erreur la plus fréquente consiste à n'en produire qu'un.
+        Un jeu documentaire par casquette. Vos cinq sous-traitants y figurent nommément, avec leur finalité, leur localisation et le mécanisme de transfert applicable.
         <span class="ref">Art. 12 à 14 RGPD ; art. 30-1 et 30-2 RGPD</span></li>
       <li><b>Mettre le bandeau cookies en conformité</b>
-        Refus au même niveau que l'acceptation dès le premier écran, aucun dépôt avant consentement, preuve conservée, retrait permanent, durées limitées. Contrôlé d'office par la CNIL et visible de l'extérieur.
+        La nécessité est désormais établie et non plus hypothétique, Analytics étant utilisé. Refus au même niveau que l'acceptation dès le premier écran, aucun dépôt avant consentement, preuve conservée, retrait permanent. Traiter dans le même mouvement le pixel de suivi d'ouverture des courriels Brevo, et déterminer si Analytics est également chargé dans l'interface de commande — auquel cas le paramétrage par défaut engage l'ensemble de votre base clients.
         <span class="ref">Art. 82 de la loi n° 78-17 ; délib. CNIL n° 2020-091 et recommandation n° 2020-092</span></li>
-      <li><b>Constituer le dossier des transferts hors UE</b>
-        Inventaire des services Firebase et de leurs régions, avenant Google accepté et daté, preuve de certification consultée, analyse d'impact des transferts, clauses contractuelles types en fondement subsidiaire.
+      <li><b>Constituer le dossier des transferts</b>
+        Quatre vérifications ciblées, désormais que la pile est connue : l'inventaire des services Firebase et de leurs régions, en tenant compte de l'absence de résidence européenne pour l'authentification ; l'avenant Google accepté, daté et archivé ; l'entité SumUp contractante et le fondement du transfert correspondant ; la liste des sous-traitants ultérieurs de Brevo. Brevo étant français et hébergé en Europe, ce volet-là est le plus simple du lot.
         <span class="ref">Art. 44 à 46 RGPD ; recommandations CEPD 01/2020</span></li>
-      <li><b>Corriger le gabarit de facture</b>
-        Mentions du Code de commerce, mentions fiscales existantes et nouvelles mentions issues de la réforme. Sanction administrative immédiate, sans litige préalable.
-        <span class="ref">Art. L.441-9 C. com ; art. 242 nonies A ann. II CGI</span></li>
+      <li><b>Corriger le gabarit de facture dans Abby</b>
+        Trois contrôles : les mentions du Code de commerce, que les outils destinés aux indépendants omettent souvent en partant d'un modèle destiné aux particuliers ; la mention « EI » ; le numéro d'identification du client. Sanction administrative immédiate, sans litige préalable.
+        <span class="ref">Art. L.441-9 C. com ; art. 242 nonies A ann. II CGI ; art. R.123-237 C. com</span></li>
+      <li><b>Souscrire ou vérifier une assurance de responsabilité civile professionnelle</b>
+        Priorité rehaussée par le statut d'entreprise individuelle : votre patrimoine professionnel répond seul des dettes professionnelles, mais il en répond. Vérifier que la garantie couvre la perte de données, le risque cyber et l'atteinte aux données personnelles, et que son plafond est cohérent avec la limitation de responsabilité de vos conditions générales — un plafond contractuel supérieur à la garantie assurée ne protège personne.
+        <span class="ref">Art. L.526-22 C. com ; art. 82 RGPD (droit à réparation)</span></li>
     </ol>
   </div>
 
   <div class="pgroup">
     <header><span class="ptag">P2</span><h3>Qualification et conformité produit</h3><span class="when">sous 3 mois</span></header>
     <ol class="plan">
-      <li><b>Statuer sur l'assujettissement à l'acte européen sur l'accessibilité</b>
-        Vérifier le seuil de micro-entreprise au sens européen. Quel que soit le résultat, engager la mise en accessibilité du tunnel de commande : l'exemption ne dispense pas vos clients atteignant les seuils, et elle vous fermerait ce segment de marché.
+      <li><b>Consigner l'exemption d'accessibilité, puis traiter le sujet comme un enjeu commercial</b>
+        L'obligation légale tombe selon toute vraisemblance. Consigner l'exemption par écrit avec les chiffres de l'exercice, et la réexaminer chaque année. Engager malgré tout la mise en accessibilité du tunnel de commande : l'exemption ne dispense pas vos clients atteignant les seuils, dont le service de vente en ligne est précisément votre interface — s'en tenir à l'exemption vous fermerait ce segment de marché.
         <span class="ref">Directive (UE) 2019/882, art. 4 §5 ; norme EN 301 549 ; WCAG 2.1 AA</span></li>
       <li><b>Trancher les qualifications de plateforme</b>
         Règlement plateformes-entreprises, règlement sur les services numériques, opérateur de plateforme en ligne et obligation déclarative annuelle. Ces quatre qualifications dépendent d'un même fait : marque blanche ou annuaire multi-restaurants. Une seule décision produit quatre réponses.
@@ -1164,20 +1250,17 @@ footer.end p{margin:0 0 10px}
 
 <section id="avocat">
   <div class="sec-head"><span class="sec-num">⚖</span><h2>Points nécessitant l'avis d'un avocat</h2></div>
-  <p class="sec-note">Signalés explicitement, comme demandé. Les cinq premiers ne relèvent pas de la rédaction documentaire mais de la qualification juridique : aucun modèle de contrat, aussi complet soit-il, ne peut y suppléer.</p>
+  <p class="sec-note">Ramenés de onze à sept par vos réponses. Les deux plus lourds — la qualification au regard du droit des paiements et le choix de la structure — sont résolus. Les sept restants sont soit des qualifications qu'aucun modèle de contrat ne peut trancher, soit des clauses dont la mauvaise rédaction produit l'effet inverse de celui recherché.</p>
   <ul class="doc">
-    <li><b>Qualification au regard du droit des paiements</b><span>Le schéma de flux détermine si vous exercez une activité réglementée. Sanction pénale, risque disqualifiant pour le modèle à la commission. Avocat en droit bancaire et financier.</span></li>
     <li><b>Frontière entre responsable de traitement et sous-traitant</b><span>Votre analyse est juste en l'état, mais tout usage propre des données de commande la déplace. À trancher avant, et non après, la mise en place d'analyses produit ou de fonctionnalités fondées sur ces données.</span></li>
-    <li><b>Applicabilité du règlement plateformes-entreprises et du règlement sur les services numériques</b><span>Qualification déterminante pour vos clauses de résiliation, de modification unilatérale et de classement.</span></li>
-    <li><b>Qualification d'opérateur de plateforme en ligne et obligation déclarative annuelle</b><span>Enjeu fiscal direct, avec obligation déclarative périodique et sanction propre.</span></li>
-    <li><b>Assujettissement à l'acte européen sur l'accessibilité</b><span>L'appréciation du seuil de micro-entreprise au sens européen, distinct du régime fiscal du micro-entrepreneur, mérite d'être confirmée par écrit.</span></li>
-    <li><b>Rédaction de la clause limitative de responsabilité</b><span>Le seul type de clause dont la mauvaise rédaction produit l'effet inverse de celui recherché : réputée non écrite, elle laisse la responsabilité sans plafond.</span></li>
+    <li><b>Les quatre qualifications de plateforme, à examiner ensemble</b><span>Règlement plateformes-entreprises, règlement sur les services numériques, opérateur de plateforme en ligne et obligation déclarative annuelle dépendent tous du même fait : marque blanche ou annuaire multi-restaurants. Une seule consultation produit quatre réponses, et les enjeux sont désormais modestes du fait de votre taille.</span></li>
+    <li><b>Rédaction de la clause limitative de responsabilité</b><span>Le seul type de clause dont la mauvaise rédaction produit l'effet inverse de celui recherché : réputée non écrite, elle laisse la responsabilité sans plafond. Enjeu accru en entreprise individuelle, où le patrimoine professionnel constitue le gage.</span></li>
     <li><b>Contrôle des clauses au regard du déséquilibre significatif</b><span>Articulation entre le Code de commerce et l'article 1171 du Code civil, débattue en doctrine et en jurisprudence.</span></li>
-    <li><b>Clauses relatives aux données agrégées et à l'anonymisation</b><span>La qualification d'anonymisation, par opposition à la pseudonymisation, conditionne la licéité de tout usage secondaire.</span></li>
-    <li><b>Répartition contractuelle des responsabilités sur l'information alimentaire</b><span>Qui répond du défaut d'affichage des allergènes devant le consommateur, et selon quel recours entre vous et le restaurateur.</span></li>
-    <li><b>Qualité de vendeur dans l'interface de commande</b><span>Détermine qui édite les conditions consommateurs, qui traite les réclamations et qui supporte le risque de rétrofacturation.</span></li>
-    <li><b>Choix de la structure juridique</b><span>En amont de tout le reste : la forme sociale commande les mentions légales, l'exposition patrimoniale, le régime de TVA et la catégorie de taille retenue pour plusieurs des échéances ci-dessus.</span></li>
+    <li><b>Clauses relatives aux données agrégées et à l'anonymisation</b><span>La qualification d'anonymisation, par opposition à la pseudonymisation, conditionne la licéité de tout usage secondaire des données de commande.</span></li>
+    <li><b>Répartition des responsabilités sur l'information alimentaire</b><span>Qui répond du défaut d'affichage des allergènes devant le consommateur, et selon quel recours entre vous et le restaurateur.</span></li>
+    <li><b>Qualité de vendeur dans l'interface de commande</b><span>Détermine qui édite les conditions vues par le consommateur et qui traite les réclamations. La question demeure entière malgré l'absence d'encaissement : le consommateur mécontent se retourne vers l'interface qu'il a vue.</span></li>
   </ul>
+  <p class="sec-note"><strong>Deux points sortent de cette liste.</strong> La qualification au regard du droit des paiements est écartée par l'absence d'encaissement, sous la seule réserve de confirmer l'usage de SumUp. Le choix de la structure juridique est fait — il reste à en tirer les conséquences, ce qui relève de l'exécution et non de la consultation : domiciliation, mention « EI », assurance professionnelle.</p>
 </section>
 
 <section id="annexe">
@@ -1239,16 +1322,14 @@ footer.end p{margin:0 0 10px}
 </section>
 
 <section id="questions">
-  <div class="sec-head"><span class="sec-num">?</span><h2>Ce qu'il me faut pour lever les « à vérifier »</h2></div>
-  <p class="sec-note">Sept éléments suffiraient à convertir la majorité des lignes « À vérifier » en constats fermes. Les quatre premiers correspondent aux gabarits laissés non remplis dans votre demande.</p>
+  <div class="sec-head"><span class="sec-num">?</span><h2>Ce qu'il reste à établir</h2></div>
+  <p class="sec-note">Vos quatre réponses ont levé la majorité des indéterminations. Cinq questions subsistent, dont deux seulement conditionnent des lignes encore ouvertes.</p>
   <ul class="doc">
-    <li><b>Structure juridique retenue</b><span>Commande les mentions légales, la publicité du domicile personnel, la catégorie de taille et le régime de TVA.</span></li>
-    <li><b>Modèle de revenu : abonnement, commission, ou les deux</b><span>Commande l'assiette tarifaire, les conditions de règlement et, indirectement, la qualification au regard du droit des paiements.</span></li>
-    <li><b>Prestataire de paiement et schéma exact des flux de fonds</b><span>Qui encaisse, sur quel compte, pendant combien de temps, qui reverse. Élément déterminant du point le plus risqué du dossier.</span></li>
-    <li><b>Liste des outils tiers</b><span>Rubrique restée vide. Sans elle, ni l'inventaire des traceurs, ni la liste des sous-traitants ultérieurs, ni la cartographie des transferts ne peuvent être établis.</span></li>
-    <li><b>Effectif et chiffre d'affaires ou total de bilan</b><span>Détermine l'exemption de micro-entreprise en matière d'accessibilité, les dispenses du règlement plateformes-entreprises et du règlement sur les services numériques, et le calendrier d'émission des factures électroniques.</span></li>
-    <li><b>Marque blanche ou annuaire multi-restaurants</b><span>Une seule réponse résout quatre qualifications simultanément.</span></li>
-    <li><b>Les documents existants, même incomplets ou datés</b><span>Un jeu de conditions générales imparfait s'audite ; son absence ne se corrige que par une rédaction complète.</span></li>
+    <li><b>Marque blanche ou annuaire multi-restaurants ?</b><span>La dernière question structurante. Une seule réponse ferme quatre qualifications à la fois : règlement plateformes-entreprises, règlement sur les services numériques, opérateur de plateforme en ligne et obligation déclarative annuelle. Formulée autrement : le consommateur arrive-t-il sur le site du restaurant, ou sur un site où il choisit parmi plusieurs établissements ?</span></li>
+    <li><b>À quoi sert SumUp exactement ?</b><span>À encaisser vos abonnements, ou à encaisser les consommateurs pour le compte des restaurateurs ? La première réponse confirme que la qualification de prestataire de paiement est définitivement écartée. La seconde rouvre l'ensemble de l'analyse.</span></li>
+    <li><b>Analytics est-il chargé dans l'interface de commande, ou seulement sur votre site vitrine ?</b><span>Et s'agit-il de Google Analytics 4 ou de l'analytique intégrée à Firebase ? Dans le premier cas, le responsable de traitement est le restaurateur et un paramétrage par défaut mal réglé expose l'ensemble de votre base clients d'un même geste.</span></li>
+    <li><b>Effectif et chiffre d'affaires du dernier exercice</b><span>Pour consigner par écrit l'exemption d'accessibilité et la dispense des obligations de plateforme, plutôt que de les tenir pour acquises. Ces exemptions se perdent au franchissement du seuil.</span></li>
+    <li><b>Les documents existants, même incomplets ou datés</b><span>Aucune pièce contractuelle n'a encore été transmise. Un jeu de conditions générales imparfait s'audite ligne à ligne ; son absence ne se corrige que par une rédaction complète.</span></li>
   </ul>
 </section>
 
