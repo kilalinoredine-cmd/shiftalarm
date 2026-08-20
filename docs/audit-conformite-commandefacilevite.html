@@ -1,0 +1,1261 @@
+<title>Registre de Conformité CommandeFacileVite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@400;600&display=swap">
+
+<style>
+:root{
+  --paper:#F4F6F9; --surface:#FFFFFF; --surface-2:#EDF0F5;
+  --ink:#121927; --muted:#5C6579; --faint:#8B93A5;
+  --rule:#D8DDE7; --rule-soft:#E7EBF2;
+  --accent:#2B4C8C; --accent-soft:#E4EAF6;
+  --ok:#2C6A4C; --ok-bg:#E2F0E8;
+  --warn:#8F6410; --warn-bg:#F7EEDA;
+  --crit:#9E2A2A; --crit-bg:#F7E4E3;
+  --na:#5C6579; --na-bg:#E8EBF1;
+  --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1119; --surface:#151B26; --surface-2:#1B2230;
+    --ink:#E4E8F0; --muted:#98A2B6; --faint:#6E7891;
+    --rule:#28303E; --rule-soft:#202733;
+    --accent:#8FB0F0; --accent-soft:#1B2740;
+    --ok:#6FC79A; --ok-bg:#16291F;
+    --warn:#DDAF57; --warn-bg:#2C2415;
+    --crit:#EE8B85; --crit-bg:#2E1917;
+    --na:#98A2B6; --na-bg:#1E2532;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1119; --surface:#151B26; --surface-2:#1B2230;
+  --ink:#E4E8F0; --muted:#98A2B6; --faint:#6E7891;
+  --rule:#28303E; --rule-soft:#202733;
+  --accent:#8FB0F0; --accent-soft:#1B2740;
+  --ok:#6FC79A; --ok-bg:#16291F;
+  --warn:#DDAF57; --warn-bg:#2C2415;
+  --crit:#EE8B85; --crit-bg:#2E1917;
+  --na:#98A2B6; --na-bg:#1E2532;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 15px/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px; margin:0 auto; padding:0 22px 96px;}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:2px solid var(--ink);
+  padding:44px 0 18px; margin-bottom:0;
+}
+.eyebrow{
+  font:500 11px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 18px;
+}
+.mast h1{
+  font:600 clamp(30px,5vw,46px)/1.08 var(--serif);
+  margin:0 0 14px; letter-spacing:-.015em; text-wrap:balance;
+}
+.mast .lede{
+  font:400 17px/1.55 var(--serif); color:var(--muted);
+  max-width:62ch; margin:0 0 26px;
+}
+.facts{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule); margin-bottom:22px;
+}
+.facts div{background:var(--surface); padding:12px 14px}
+.facts dt{
+  font:500 10px/1.3 var(--mono); letter-spacing:.11em; text-transform:uppercase;
+  color:var(--faint); margin:0 0 5px;
+}
+.facts dd{margin:0; font:500 14px/1.35 var(--sans)}
+
+/* ---------- blocks ---------- */
+.alert{
+  border:1px solid var(--rule); border-top:3px solid var(--crit);
+  background:var(--surface); padding:22px 24px; margin:32px 0;
+}
+.alert.info{border-top-color:var(--accent)}
+.alert h3{
+  font:600 12px/1.3 var(--mono); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--crit); margin:0 0 12px;
+}
+.alert.info h3{color:var(--accent)}
+.alert p{margin:0 0 10px; max-width:74ch}
+.alert p:last-child{margin-bottom:0}
+.alert ul{margin:0 0 10px; padding-left:20px}
+.alert li{margin-bottom:6px; max-width:72ch}
+
+section{margin-top:52px; scroll-margin-top:20px}
+.sec-head{
+  display:flex; align-items:baseline; gap:14px;
+  border-bottom:1px solid var(--ink); padding-bottom:10px; margin-bottom:8px;
+}
+.sec-num{
+  font:500 12px/1 var(--mono); color:var(--accent);
+  letter-spacing:.06em; flex:0 0 auto; padding-top:4px;
+}
+.sec-head h2{
+  font:600 clamp(21px,2.6vw,27px)/1.2 var(--serif); margin:0;
+  letter-spacing:-.01em; text-wrap:balance;
+}
+.sec-note{
+  color:var(--muted); font-size:14px; margin:12px 0 20px; max-width:78ch;
+}
+h3.sub{
+  font:600 15px/1.3 var(--sans); margin:34px 0 10px;
+  letter-spacing:.005em;
+}
+
+/* ---------- register table ---------- */
+.scroller{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+table.reg{border-collapse:collapse; width:100%; min-width:940px; font-size:13.5px}
+.reg th{
+  text-align:left; vertical-align:bottom;
+  font:500 10px/1.3 var(--mono); letter-spacing:.11em; text-transform:uppercase;
+  color:var(--faint); background:var(--surface-2);
+  padding:10px 12px; border-bottom:1px solid var(--rule);
+  white-space:nowrap;
+}
+.reg td{
+  vertical-align:top; padding:13px 12px;
+  border-bottom:1px solid var(--rule-soft); line-height:1.5;
+}
+.reg tr:last-child td{border-bottom:0}
+.reg td:first-child{font-weight:500}
+.reg .c-doc{width:15%}
+.reg .c-obl{width:26%}
+.reg .c-st{width:8%}
+.reg .c-rk{width:7%}
+.reg .c-act{width:26%}
+.reg .c-ref{width:18%}
+.reg .ref{font:400 12px/1.5 var(--mono); color:var(--muted)}
+.reg strong{font-weight:600}
+
+.pill{
+  display:inline-block; padding:3px 8px; border-radius:2px;
+  font:500 10.5px/1.35 var(--mono); letter-spacing:.05em;
+  text-transform:uppercase; white-space:nowrap;
+}
+.s-verif{background:var(--warn-bg); color:var(--warn); border:1px solid var(--warn)}
+.s-lac{background:var(--crit-bg); color:var(--crit); border:1px solid var(--crit)}
+.s-conf{background:var(--ok-bg); color:var(--ok); border:1px solid var(--ok)}
+.s-na{background:var(--na-bg); color:var(--na); border:1px solid var(--rule)}
+
+.rk{font:500 11px/1.35 var(--mono); letter-spacing:.05em; text-transform:uppercase; white-space:nowrap}
+.rk::before{content:"●"; margin-right:5px; font-size:10px}
+.rk-h{color:var(--crit)} .rk-m{color:var(--warn)} .rk-l{color:var(--ok)}
+
+.lawyer{
+  display:inline-block; font:500 10px/1.35 var(--mono); letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:2px;
+  padding:1px 5px; margin-left:4px; white-space:nowrap;
+}
+
+/* ---------- summary counts ---------- */
+.tally{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:1px; background:var(--rule); border:1px solid var(--rule); margin:26px 0 0;
+}
+.tally div{background:var(--surface); padding:16px 14px}
+.tally b{display:block; font:600 30px/1 var(--serif); font-variant-numeric:tabular-nums; margin-bottom:6px}
+.tally span{font:500 10px/1.3 var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.t-h b{color:var(--crit)} .t-m b{color:var(--warn)} .t-l b{color:var(--ok)}
+
+/* ---------- lists ---------- */
+ul.doc, ol.plan{margin:0; padding:0; list-style:none}
+ul.doc li{
+  border-left:1px solid var(--rule); padding:0 0 0 16px; margin-bottom:14px;
+  max-width:82ch;
+}
+ul.doc li b{display:block; font-weight:600; margin-bottom:3px}
+ul.doc li span{color:var(--muted); font-size:13.5px}
+
+.pgroup{border:1px solid var(--rule); background:var(--surface); margin-bottom:18px}
+.pgroup > header{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:10px;
+  padding:12px 18px; border-bottom:1px solid var(--rule); background:var(--surface-2);
+}
+.ptag{
+  font:500 11px/1 var(--mono); letter-spacing:.08em; padding:5px 8px; border-radius:2px;
+  background:var(--ink); color:var(--paper);
+}
+.pgroup.p0 .ptag{background:var(--crit); color:var(--paper)}
+.pgroup.p1 .ptag{background:var(--warn); color:var(--paper)}
+.pgroup > header h3{font:600 16px/1.3 var(--sans); margin:0}
+.pgroup > header .when{font:400 12.5px/1.3 var(--mono); color:var(--muted); margin-left:auto}
+ol.plan{counter-reset:step; padding:6px 18px 16px}
+ol.plan li{
+  counter-increment:step; position:relative; padding:12px 0 12px 40px;
+  border-bottom:1px solid var(--rule-soft); max-width:88ch;
+}
+ol.plan li:last-child{border-bottom:0}
+ol.plan li::before{
+  content:counter(step,decimal-leading-zero); position:absolute; left:0; top:13px;
+  font:500 12px/1.4 var(--mono); color:var(--faint); font-variant-numeric:tabular-nums;
+}
+ol.plan li b{display:block; font-weight:600; margin-bottom:3px}
+ol.plan li .ref{display:block; font:400 12px/1.5 var(--mono); color:var(--muted); margin-top:5px}
+
+footer.end{
+  margin-top:64px; padding-top:22px; border-top:2px solid var(--ink);
+  color:var(--muted); font-size:13px; max-width:80ch;
+}
+footer.end p{margin:0 0 10px}
+
+@media (max-width:960px){
+  table.reg{min-width:0}
+  .scroller{border:0; background:transparent}
+  .reg thead{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+  .reg,.reg tbody,.reg tr,.reg td{display:block; width:auto}
+  .reg tr{
+    border:1px solid var(--rule); background:var(--surface);
+    padding:14px 16px; margin-bottom:12px;
+  }
+  .reg td{border:0; padding:6px 0}
+  .reg td::before{
+    content:attr(data-l); display:block;
+    font:500 9.5px/1.4 var(--mono); letter-spacing:.11em; text-transform:uppercase;
+    color:var(--faint); margin-bottom:3px;
+  }
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">Audit de conformité · Droit du numérique FR / UE</p>
+  <h1>Registre de conformité CommandeFacileVite</h1>
+  <p class="lede">Contrôle des dix points demandés, sur la base des textes en vigueur au 20 août 2026. Aucune pièce contractuelle de l'éditeur n'ayant été transmise, ce document vaut grille d'audit à instruire, non constat de non-conformité.</p>
+  <dl class="facts">
+    <div><dt>Date d'analyse</dt><dd>20 août 2026</dd></div>
+    <div><dt>Pièces reçues</dt><dd>0 sur 33 attendues</dd></div>
+    <div><dt>Points contrôlés</dt><dd>86, sur 19 régimes</dd></div>
+    <div><dt>Qualification RGPD</dt><dd>Double casquette RT / ST</dd></div>
+    <div><dt>Échéance la plus proche</dt><dd>1<sup>er</sup> sept. 2026 (12 j)</dd></div>
+  </dl>
+</header>
+
+<div class="alert">
+  <h3>Constat préalable — périmètre réel de l'analyse</h3>
+  <p>Trois limites doivent être posées avant toute lecture du registre ci-dessous.</p>
+  <ul>
+    <li><b>Aucun document CommandeFacileVite n'a été joint.</b> Le seul fichier présent dans l'espace de travail est <code>index.html</code>, politique de confidentialité de <em>Shift Alarm</em>, application Android de réveil hors-ligne éditée par KILALI Noredine. Elle est sans rapport avec le SaaS audité. Elle fait l'objet d'une annexe distincte, à titre subsidiaire.</li>
+    <li><b>Quatre variables du brief sont restées à l'état de gabarit</b> : structure juridique <code>[SASU / auto-entreprise / SARL]</code>, modèle de revenu <code>[abonnements / commission]</code>, prestataire de paiement <code>[Stripe / SumUp / autre]</code>, et la liste d'outils tiers <code>[liste-les ici]</code> est vide. Or ces quatre variables commandent respectivement les mentions légales, la qualification au regard du droit des paiements, le régime de la sous-traitance ultérieure et la cartographie des transferts hors UE.</li>
+    <li><b>Conséquence méthodologique.</b> Conformément à votre consigne, aucun point n'est présumé conforme ni non conforme. Tout point dépendant d'une pièce absente est classé <span class="pill s-verif">À vérifier</span>. Le niveau de risque affiché est alors le <em>risque encouru si la lacune est avérée</em> — c'est une hiérarchisation d'instruction, pas une constatation. Seules l'annexe Shift Alarm et les points de droit objectifs (calendriers légaux, seuils, textes applicables) portent un statut ferme.</li>
+  </ul>
+</div>
+
+<div class="alert info">
+  <h3>Trois points ne peuvent pas attendre l'instruction du reste</h3>
+  <ul>
+    <li><b>Facturation électronique — 12 jours.</b> L'obligation de <em>réception</em> de factures électroniques s'impose à tout assujetti à la TVA au 1<sup>er</sup> septembre 2026, sans exception de taille, et suppose d'avoir contractualisé avec une plateforme de dématérialisation partenaire immatriculée. Le portail public n'assure plus de service gratuit d'échange.</li>
+    <li><b>Qualification au regard du droit des paiements.</b> Si les fonds des consommateurs transitent, même brièvement, par un compte à votre nom avant reversement au restaurateur, vous fournissez un service de paiement au sens de l'art. L.314-1 CMF. L'exercice sans agrément est un délit — 3 ans d'emprisonnement et 375 000 € (art. L.572-4 CMF). Ce point conditionne la viabilité du modèle « commission » et doit être tranché par un avocat.</li>
+    <li><b>Contrat de sous-traitance article 28.</b> L'absence de contrat écrit avec chacun de vos clients restaurateurs est, à elle seule, un manquement relevant du plafond haut de l'art. 83-4 a) RGPD : 10 M€ ou 2 % du chiffre d'affaires annuel mondial. C'est la lacune la plus fréquente chez les éditeurs SaaS en phase d'amorçage, et la plus simple à corriger.</li>
+  </ul>
+</div>
+
+<div class="tally">
+  <div class="t-h"><b>36</b><span>Risque élevé</span></div>
+  <div class="t-m"><b>38</b><span>Risque moyen</span></div>
+  <div class="t-l"><b>12</b><span>Risque faible</span></div>
+  <div><b>11</b><span>Avis d'avocat requis</span></div>
+  <div><b>33</b><span>Documents manquants</span></div>
+</div>
+
+<section id="s1">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Mentions légales (LCEN)</h2></div>
+  <p class="sec-note">Le contenu exact dépend de la structure juridique, restée non renseignée. Les lignes ci-dessous distinguent donc les mentions communes et les mentions conditionnelles.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Identification de l'éditeur : si personne morale, dénomination, forme, siège social, capital social, numéro RCS ; si personne physique (auto-entreprise), nom, prénom, domicile, numéro RM ou RCS. Téléphone dans les deux cas.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Publier une page « Mentions légales » accessible depuis chaque page. Renseigner d'abord la forme sociale : en auto-entreprise, le <strong>domicile personnel</strong> devient obligatoirement public, ce qui est souvent un motif de bascule vers une société.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-III-1 a) et b), loi n° 2004-575 du 21 juin 2004 (LCEN)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Nom du directeur de la publication et, le cas échéant, du responsable de la rédaction.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Désigner le représentant légal comme directeur de la publication et le mentionner nommément.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-III-1 c) LCEN, renvoyant à l'art. 93-2 de la loi n° 82-652 du 29 juillet 1982</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Nom, dénomination, adresse et numéro de téléphone de l'hébergeur.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Identifier l'entité Google contractante réelle — selon le contrat souscrit, Google Cloud EMEA Limited (Irlande) ou Google LLC (États-Unis) — et reprendre son adresse et son téléphone. Ne pas écrire « Firebase » seul : ce n'est pas une personne juridique.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-III-1 e) LCEN</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Informations propres au commerce électronique : adresse de courrier électronique, numéro de TVA intracommunautaire, mention de l'autorité ayant délivré l'autorisation si l'activité y est soumise, règles professionnelles applicables si profession réglementée.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Ajouter l'e-mail et le numéro de TVA intracommunautaire. Si vous relevez de la franchise en base, porter la mention « TVA non applicable, article 293 B du CGI » sur le site et sur les factures.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 19 LCEN ; art. 293 B CGI</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Accès facile, direct et permanent aux informations, par un standard ouvert.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Lien en pied de page sur toutes les pages, y compris l'interface de commande servie à vos clients.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 19 LCEN</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Sanction du défaut de mentions.</td>
+        <td data-l="Statut"><span class="pill s-na">Pour mémoire</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Traiter ce point en priorité : c'est le moins coûteux à corriger et le plus visible en cas de contrôle DGCCRF ou de litige client.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-VI-1 LCEN : 1 an d'emprisonnement et 75 000 € ; 375 000 € pour une personne morale (art. 131-38 C. pén.)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Médiation de la consommation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Non requis si vous ne contractez qu'avec des professionnels agissant pour leur activité. À réexaminer si vous vendez à des particuliers ou à des non-professionnels (associations, SCI sans activité). Vos clients restaurateurs, eux, y sont tenus envers leurs consommateurs.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.616-1 et R.616-1 C. conso</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mentions légales</td>
+        <td data-l="Obligation">Lien vers la plateforme européenne de règlement en ligne des litiges (RLL).</td>
+        <td data-l="Statut"><span class="pill s-na">Abrogé</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Ne pas ajouter ce lien, et le retirer s'il figure dans un modèle repris ailleurs : la plateforme a cessé de fonctionner le 20 juillet 2025. Un lien mort est un signal de CGV non maintenues.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2024/3228 du 19 décembre 2024, abrogeant le règlement (UE) n° 524/2013</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s2">
+  <div class="sec-head"><span class="sec-num">02</span><h2>CGV / CGU B2B</h2></div>
+  <p class="sec-note">En B2B, le droit de la consommation ne s'applique pas : le contrôle des clauses passe par le déséquilibre significatif du Code de commerce et par les articles 1170 et 1171 du Code civil. C'est un terrain plus étroit et plus technique que le B2C, souvent sous-estimé.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Existence, communication et opposabilité des CGV : socle unique de la négociation commerciale, communiquées à tout professionnel qui en fait la demande.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Rédiger des CGV, les faire accepter par une action positive horodatée (case à cocher non pré-cochée à la souscription), conserver la preuve d'acceptation et la version acceptée. Des CGV non opposables équivalent à une absence de CGV en cas de litige.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-1 I et II C. com ; art. 1119 C. civ ; sanction art. L.441-16 C. com (75 000 € PP / 2 M€ PM)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Contenu minimal : conditions de vente, barème des prix unitaires, réductions de prix, conditions de règlement.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Annexer une grille tarifaire datée et versionnée. Si vous facturez une commission, en préciser l'assiette exacte (TTC ou HT, avant ou après frais du prestataire de paiement, sort des remboursements et des rétrofacturations).</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-1 II C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Objet et périmètre fonctionnel du service, obligation déterminée.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Décrire le service par fonctionnalités et par ce qui en est exclu. Exclure explicitement ce que vous ne faites pas : encaissement, conseil fiscal, conformité alimentaire du client, e-reporting.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 1163 C. civ ; devoir d'information précontractuelle, art. 1112-1 C. civ</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Durée, reconduction tacite, préavis et modalités de résiliation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Attention à un contresens fréquent : l'obligation d'information annuelle sur la reconduction tacite ne joue pas ici, elle vise le consommateur et le non-professionnel. Vous restez néanmoins tenu de la prohibition des engagements perpétuels et du contrôle du déséquilibre significatif : un préavis de résiliation long assorti d'une reconduction automatique de 12 mois est un classique de la requalification.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.215-1 et L.215-3 C. conso (non applicables au professionnel) ; art. 1210 et 1211 C. civ</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">SLA</td>
+        <td data-l="Obligation">Niveau de service : taux de disponibilité, fenêtres de maintenance, délais de prise en charge du support, régime des pénalités ou crédits de service.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Aucun texte n'impose un SLA, mais son absence vous expose davantage : le juge qualifie alors librement l'intensité de l'obligation. Qualifier expressément vos engagements d'obligation de moyens, sauf sur les points que vous maîtrisez réellement. Un service de commande subit ses pics le vendredi et le samedi soir : la fenêtre de maintenance doit l'exclure.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 1231-1 C. civ</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Clause limitative de responsabilité.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Point le plus sensible des CGV SaaS. Une clause qui plafonne la réparation à un montant dérisoire au regard de l'obligation essentielle est réputée non écrite, et le plafonnement tombe intégralement — vous vous retrouvez sans limite. Calibrer le plafond sur les sommes versées sur les 12 derniers mois, réserver la faute lourde et le dol, exclure les dommages indirects avec une définition, et vérifier la cohérence avec le plafond de votre RC professionnelle.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 1170 C. civ ; art. 1231-3 C. civ ; Cass. com. 22 oct. 1996 (Chronopost) ; Cass. com. 29 juin 2010, n° 09-11.841 (Faurecia II)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Absence de clause créant un déséquilibre significatif entre les droits et obligations des parties.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Passer en revue les clauses habituellement censurées : modification unilatérale du prix ou du service sans préavis ni droit de sortie, résiliation discrétionnaire à votre seul profit, suspension immédiate pour tout impayé sans mise en demeure, exclusion totale de responsabilité, obligation de non-concurrence disproportionnée. L'articulation entre l'art. L.442-1 C. com et l'art. 1171 C. civ est débattue et doit être arbitrée par un avocat.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.442-1 I 2° C. com ; sanctions art. L.442-4 III (amende civile jusqu'à 5 M€, ou le triple des sommes indûment perçues, ou 5 % du CA HT France) ; art. 1171 C. civ pour le contrat d'adhésion (art. 1110 al. 2)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Encadrement de la rupture des relations commerciales établies.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Prévoir un préavis écrit tenant compte de la durée de la relation. Le risque joue dans les deux sens : il vous protège aussi lorsqu'un client important vous quitte brutalement.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.442-1 II C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Propriété intellectuelle : périmètre de la licence concédée au client, propriété des données du client, sort des développements spécifiques.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Concéder une licence d'utilisation personnelle, non exclusive, non cessible, limitée à la durée du contrat — et non une cession. Une clause de « cession » rédigée sans les mentions de l'art. L.131-3 CPI (étendue, destination, lieu, durée) est nulle. Affirmer symétriquement que le contenu et les données du restaurateur lui appartiennent, et border tout usage de données agrégées : l'anonymisation invoquée doit être réelle, non une simple pseudonymisation.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.112-2 13°, L.122-6 et L.131-3 CPI ; avis WP216 du G29 du 10 avril 2014 sur les techniques d'anonymisation</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV B2B</td>
+        <td data-l="Obligation">Réversibilité et restitution des données en fin de contrat, portabilité, changement de fournisseur.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Obligation devenue autonome et souvent ignorée : le règlement européen sur les données impose depuis le 12 septembre 2025 des clauses contractuelles de changement de fournisseur à tout service de traitement de données, ce qu'est un SaaS. Insérer un préavis de résiliation plafonné à deux mois, une période de transition de trente jours, une assistance à l'export dans un format structuré et une suppression documentée en fin de contrat.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2023/2854 (Data Act), art. 23 à 31, spéc. art. 25 et 29 ; art. 28-3 g) RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGU consommateurs</td>
+        <td data-l="Obligation">Conditions applicables aux consommateurs finaux passant commande via l'interface : identification du vendeur, du responsable de traitement, du destinataire des réclamations.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Trancher contractuellement une question aujourd'hui indéterminée : qui édite les conditions vues par le consommateur, vous ou le restaurateur, et qui est le vendeur. En l'absence de réponse écrite, le consommateur mécontent se retournera contre l'interface qu'il a vue, c'est-à-dire vous. Fournir un modèle de CGV consommateurs à vos clients est ici à la fois une protection et un argument commercial.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.221-5 C. conso ; art. 1127-1 et 1127-2 C. civ</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s3">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Conditions de paiement, délais et pénalités de retard</h2></div>
+  <p class="sec-note">Régime d'ordre public : ces clauses ne se négocient pas librement et leur absence sur la facture est sanctionnée par une amende administrative, indépendamment de tout litige avec le client.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">CGV / Facture</td>
+        <td data-l="Obligation">Délai de paiement plafonné : 30 jours après réception à défaut de stipulation ; au maximum 60 jours à compter de la date d'émission de la facture, ou 45 jours fin de mois si cela est expressément stipulé et ne constitue pas un abus.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Vérifier qu'aucune offre commerciale ne dépasse ces plafonds. Un abonnement prélevé d'avance est sans difficulté ; le sujet apparaît sur les paiements à terme accordés aux groupes de restauration.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-10 I C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV / Facture</td>
+        <td data-l="Obligation">Pénalités de retard exigibles de plein droit, sans rappel : taux d'intérêt de la BCE à son opération de refinancement la plus récente majoré de 10 points, sans pouvoir être inférieur à trois fois le taux d'intérêt légal.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Inscrire le taux dans les CGV et le rappeler sur chaque facture. Une clause fixant un taux inférieur au plancher légal est inopposable.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-10 II C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV / Facture</td>
+        <td data-l="Obligation">Indemnité forfaitaire pour frais de recouvrement de 40 €, complétée le cas échéant par une indemnité complémentaire sur justificatifs.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Mention à porter dans les CGV et sur chaque facture, y compris lorsqu'elle n'est jamais réclamée en pratique : c'est son absence qui est sanctionnée.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-10 II C. com ; art. D.441-5 C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Facture</td>
+        <td data-l="Obligation">Mentions obligatoires : date de règlement, conditions d'escompte en cas de paiement anticipé, taux des pénalités de retard, montant de l'indemnité forfaitaire.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Contrôler le gabarit de facture émis par votre outil de facturation. Ce point est vérifié en contrôle DGCCRF et la sanction est administrative, donc immédiate.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.441-9 C. com ; sanction art. L.441-9 III : amende administrative jusqu'à 75 000 € (PP) et 375 000 € (PM) ; mentions fiscales art. 242 nonies A ann. II CGI</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">CGV</td>
+        <td data-l="Obligation">Clause de suspension du service en cas d'impayé.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Licite, mais à encadrer : mise en demeure préalable, délai de régularisation, information du client, et maintien de l'accès à l'export de ses données. Une coupure immédiate un samedi soir sur le service de prise de commandes d'un restaurant est le type de clause qui fait basculer l'analyse vers le déséquilibre significatif.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 1219 et 1220 C. civ (exception d'inexécution) ; art. L.442-1 I 2° C. com</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Mandat SEPA</td>
+        <td data-l="Obligation">Prélèvement automatique : mandat signé, référence unique, pré-notification du client avant échéance, information sur le délai de contestation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Si vous prélevez les abonnements, vérifier la chaîne de mandat gérée par votre prestataire et la conservation des mandats. Le payeur dispose de huit semaines pour obtenir le remboursement d'une opération autorisée.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) n° 260/2012 ; art. L.133-25 CMF</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s4">
+  <div class="sec-head"><span class="sec-num">04</span><h2>RGPD — information, bases légales, conservation, sécurité</h2></div>
+  <p class="sec-note">Votre analyse de la double casquette est exacte et constitue le bon point de départ. Elle appelle une réserve importante, traitée en première ligne du tableau : elle n'est stable que tant que vous n'exploitez pas les données de commande pour vos propres finalités.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Cartographie</td>
+        <td data-l="Obligation">Qualification traitement par traitement du rôle de responsable de traitement ou de sous-traitant.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Votre lecture est juste, mais la frontière se déplace dès que vous utilisez les données des consommateurs pour vos propres finalités : statistiques produit, entraînement d'un modèle, recommandations, prospection, revente de tendances. Vous devenez alors responsable de traitement pour ces finalités, avec l'obligation d'une base légale propre et d'une information directe des consommateurs. Formaliser la cartographie par écrit et l'annexer au contrat de sous-traitance.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 4-7 et 4-8, art. 26 et art. 28-10 RGPD ; CEPD, lignes directrices 07/2020 sur les notions de responsable du traitement et de sous-traitant, version 2.1 du 7 juillet 2021</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Politique de confidentialité</td>
+        <td data-l="Obligation">Information complète des personnes : identité et coordonnées du responsable, contact du délégué ou point de contact, finalités et base légale de chaque traitement, intérêts légitimes poursuivis, destinataires, transferts hors UE et mécanisme, durées de conservation par finalité, droits et modalités d'exercice, droit de réclamation auprès de la CNIL, caractère obligatoire ou facultatif des réponses, existence d'une décision automatisée.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Prévoir deux documents distincts, et non un seul : la politique de votre site et de votre back-office, où vous êtes responsable de traitement ; et la politique affichée dans l'interface de commande, où le responsable est le restaurateur et où vous n'apparaissez que comme sous-traitant. Fusionner les deux est l'erreur structurante la plus fréquente dans ce modèle.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 12, 13 et 14 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Politique / Registre</td>
+        <td data-l="Obligation">Base légale documentée pour chaque traitement.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Répartition attendue : gestion des abonnements et du support, exécution du contrat ; comptabilité et facturation, obligation légale ; prospection commerciale B2B par courriel, intérêt légitime sous réserve que l'objet du message soit en rapport avec la profession démarchée et qu'un droit d'opposition soit offert dès la collecte ; sécurité et journalisation, intérêt légitime ; traceurs non essentiels, consentement. Chaque recours à l'intérêt légitime doit s'appuyer sur une mise en balance écrite, produite en cas de contrôle.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-1 b), c) et f) RGPD ; art. L.34-5 CPCE ; considérant 47</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Politique de conservation</td>
+        <td data-l="Obligation">Durées de conservation définies, justifiées et effectivement appliquées.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Établir une matrice par finalité, puis — point le plus souvent défaillant — l'implémenter réellement par des purges automatisées. Repères : prospects, 3 ans à compter du dernier contact ; clients, durée du contrat puis archivage jusqu'à la prescription quinquennale ; pièces comptables, 10 ans ; données de connexion, selon le décret de 2021 ; consentement aux traceurs, 6 mois recommandés, traceurs 13 mois, données issues des traceurs 25 mois. Les données des consommateurs finaux relèvent de la durée fixée par le restaurateur, à reprendre dans le contrat de sous-traitance.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 5-1 e) RGPD ; art. 2224 C. civ ; art. L.123-22 C. com ; art. L.102 B LPF ; décret n° 2021-1362 du 20 octobre 2021 ; référentiel CNIL « gestion des activités commerciales », délib. n° 2021-122 du 14 octobre 2021 ; recommandation CNIL n° 2020-092 du 17 septembre 2020</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Sécurité</td>
+        <td data-l="Obligation">Mesures techniques et organisationnelles appropriées au risque.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Priorité absolue et propre à votre pile technique : contrôler les <strong>règles de sécurité Firestore, Realtime Database et Cloud Storage</strong>. Les règles ouvertes ou expirées sont la première cause de fuite de données sur Firebase, et une base de commandes contient nom, téléphone, adresse de livraison et historique de consommation. Tester un accès non authentifié depuis l'extérieur. Vérifier également : authentification multifacteur sur les consoles Google Cloud, moindre privilège, absence de clé de service exposée côté client, chiffrement, journalisation, sauvegardes dont la restauration est testée.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 32 RGPD ; guide de la sécurité des données personnelles, CNIL</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Procédure violations</td>
+        <td data-l="Obligation">Notification à la CNIL sous 72 heures, information des personnes en cas de risque élevé, registre interne des violations ; en qualité de sous-traitant, alerte du responsable dans les meilleurs délais.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Écrire la procédure avant d'en avoir besoin : qui qualifie, qui décide, qui notifie, sous quel délai. Fixer contractuellement un délai d'alerte du restaurateur (24 à 48 heures), faute de quoi il ne pourra pas tenir son propre délai de 72 heures et se retournera contre vous.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 33 et 34 RGPD, spéc. art. 33-2 et 33-5</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">AIPD</td>
+        <td data-l="Obligation">Analyse d'impact relative à la protection des données lorsque le traitement est susceptible d'engendrer un risque élevé.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Instruire la question au regard des critères des lignes directrices européennes et de la liste CNIL : traitement à grande échelle, croisement de données, données de localisation, personnes vulnérables. Si l'analyse conclut à l'absence de nécessité, conserver cette conclusion écrite : c'est elle qui vous protège en contrôle.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 35 RGPD ; lignes directrices WP248 rév.01 ; délibération CNIL n° 2018-327 du 11 octobre 2018</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Gouvernance</td>
+        <td data-l="Obligation">Désignation d'un délégué à la protection des données, le cas échéant.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">La désignation n'est probablement pas obligatoire à votre échelle, mais elle le devient si le suivi des consommateurs devient régulier et systématique à grande échelle. Publier en tout état de cause un point de contact identifié : vos clients professionnels l'exigeront en phase d'achat.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 37 à 39 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Interface de commande</td>
+        <td data-l="Obligation">Traitement des données de mineurs.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">La commande de repas en ligne par des mineurs est un cas d'usage réel. En France, le consentement propre du mineur au titre des services de la société de l'information est valable à partir de 15 ans. Traiter la question dans le contrat de sous-traitance plutôt que de l'ignorer.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 8 RGPD ; art. 45 de la loi n° 78-17 du 6 janvier 1978 modifiée</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Procédure droits</td>
+        <td data-l="Obligation">Traitement des demandes d'exercice des droits dans le délai d'un mois, prorogeable de deux mois.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Prévoir deux circuits : vos propres demandes, que vous traitez ; et celles des consommateurs, reçues à tort, que vous devez rediriger vers le restaurateur responsable tout en l'assistant techniquement.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 12 à 22 RGPD ; art. 28-3 e) RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Paiement</td>
+        <td data-l="Obligation">Données de carte bancaire : non-conservation du cryptogramme, encadrement de la conservation du numéro.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Vérifier qu'aucune donnée de carte ne transite ni ne réside dans votre infrastructure : recourir aux champs hébergés ou à la redirection du prestataire, ne manipuler que des jetons. Le cryptogramme visuel ne peut jamais être conservé, même le temps d'une transaction.</td>
+        <td data-l="Texte de référence"><span class="ref">Délibération CNIL n° 2018-303 du 6 septembre 2018 (référentiel paiement) ; art. 32 RGPD ; norme PCI-DSS</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s5">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Contrat de sous-traitance (art. 28 RGPD)</h2></div>
+  <p class="sec-note">C'est la pièce la plus structurante de votre dossier et celle dont l'absence est la plus lourdement sanctionnée. Elle doit exister avec chacun de vos clients, sans exception, y compris les plus petits et les plus anciens.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">DPA client</td>
+        <td data-l="Obligation">Existence d'un contrat ou d'un acte juridique écrit liant le sous-traitant au responsable de traitement.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Si ce contrat n'existe pas, c'est la première action à mener, avant même les CGV. Voie la plus rapide : une annexe « protection des données » intégrée aux CGV et acceptée en même temps qu'elles, complétée par un avenant proposé aux clients existants.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-3 RGPD ; sanction art. 83-4 a) : jusqu'à 10 M€ ou 2 % du chiffre d'affaires annuel mondial</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA client</td>
+        <td data-l="Obligation">Mentions cadres : objet, durée, nature et finalité du traitement, type de données, catégories de personnes concernées, obligations et droits du responsable de traitement.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Décrire précisément les catégories : identité du consommateur, coordonnées, adresse de livraison, contenu et historique des commandes, préférences et allergies signalées, données de paiement tokenisées, horodatages.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-3, alinéa 1 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA client</td>
+        <td data-l="Obligation">Les huit engagements obligatoires : instructions documentées et alerte en cas d'instruction illicite ; confidentialité des personnes autorisées ; mesures de sécurité de l'art. 32 ; conditions de recrutement d'un sous-traitant ultérieur ; assistance à l'exercice des droits ; assistance aux art. 32 à 36 ; effacement ou restitution des données au terme de la prestation ; mise à disposition des informations nécessaires et acceptation des audits.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Reprendre les huit points sans en omettre aucun. Encadrer l'audit en pratique : périodicité, préavis, coût, confidentialité, possibilité de substituer un rapport de certification à un audit sur site — sans quoi vous vous exposez à des demandes d'audit ingérables à mesure que vos clients grossissent.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-3 a) à h) RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA client</td>
+        <td data-l="Obligation">Sous-traitance ultérieure : autorisation écrite préalable, spécifique ou générale, information préalable de tout changement et droit d'objection du responsable.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Annexer la liste nominative des sous-traitants ultérieurs : Google pour l'hébergement, le prestataire de paiement, l'outil d'envoi d'e-mails transactionnels, l'outil de support, la solution d'analytique, l'éventuel prestataire de sauvegarde. Cette liste ne peut pas être établie tant que l'inventaire des outils tiers, laissé vide dans votre demande, n'est pas renseigné. Prévoir une page publique listant ces sous-traitants et un préavis d'information avant tout ajout.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-2 et 28-4 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA fournisseurs</td>
+        <td data-l="Obligation">Contrat art. 28 conclu avec chacun de vos propres sous-traitants ultérieurs, imposant les mêmes obligations.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Rassembler les avenants de protection des données de chaque fournisseur, vérifier qu'ils ont été effectivement acceptés — chez Google, l'acceptation du <em>Cloud Data Processing Addendum</em> se fait dans la console et se prouve — et les archiver. Vous demeurez pleinement responsable envers le restaurateur des manquements de vos propres fournisseurs.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-4 RGPD ; clauses contractuelles types responsable-sous-traitant, décision d'exécution (UE) 2021/915 du 4 juin 2021</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA / CGV</td>
+        <td data-l="Obligation">Cohérence entre le contrat de sous-traitance et les clauses des CGV relatives aux données.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Rechercher les contradictions classiques : des CGV qui vous autorisent à exploiter librement les données, face à un contrat de sous-traitance qui vous interdit d'agir hors instructions. En cas de conflit, la clause la plus permissive sera retenue contre vous.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 28-3 a) et 28-10 RGPD</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s6">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Registre des traitements</h2></div>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Registre</td>
+        <td data-l="Obligation">Tenue de <strong>deux</strong> registres distincts : celui des traitements dont vous êtes responsable, et celui des catégories de traitements effectués pour le compte de chaque responsable.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Conséquence directe de la double casquette, et lacune quasi systématique : la plupart des éditeurs n'en tiennent qu'un. Le registre de sous-traitant a un contenu propre et plus court, et doit lister les responsables pour lesquels vous agissez.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 30-1 et 30-2 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Registre</td>
+        <td data-l="Obligation">Applicabilité de l'exemption des organismes de moins de 250 salariés.</td>
+        <td data-l="Statut"><span class="pill s-lac">Inopérante</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">L'exemption ne joue pas : elle tombe dès que le traitement n'est pas occasionnel, ce qui est le cas d'un service de commande en continu. Le registre est donc obligatoire quelle que soit votre taille — y compris en auto-entreprise sans salarié.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 30-5 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Registre</td>
+        <td data-l="Obligation">Contenu et forme : écrit ou électronique, mis à disposition de la CNIL sur demande.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Partir du modèle de registre simplifié publié par la CNIL. Traitements attendus côté responsable : prospects, clients et facturation, support, recrutement et personnel le cas échéant, sécurité et journalisation, gestion des cookies. Côté sous-traitant : hébergement et exploitation du service de commande, sauvegarde, support technique sur données clients.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 30-1 a) à g), 30-2 a) à d), 30-3 et 30-4 RGPD</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s7">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Transferts hors UE — Firebase et Google Cloud</h2></div>
+  <p class="sec-note">Le sujet est instruisable sans vos documents, parce que l'architecture technique de Firebase est connue. Le point déterminant est que la résidence des données n'est pas uniforme d'un service Firebase à l'autre : elle se contrôle service par service, pas au niveau du projet.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Cartographie des flux</td>
+        <td data-l="Obligation">Recensement des transferts : quel service, quelles données, quelle région, quelle entité destinataire.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Instruire service par service. Cloud Firestore, Realtime Database, Cloud Storage et Cloud Functions permettent de sélectionner une région européenne, mais le choix est irréversible après création. En revanche <strong>Firebase Authentication ne propose pas de résidence européenne</strong> et traite les données d'identification aux États-Unis ; il en va de même, selon les configurations, pour la messagerie push, Crashlytics et l'analytique. Un projet « hébergé en Europe » comporte donc presque toujours des transferts résiduels. Le vérifier plutôt que le supposer.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 30-1 e) et art. 44 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">DPA Google</td>
+        <td data-l="Obligation">Mécanisme de transfert valable : décision d'adéquation ou garanties appropriées.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Deux fondements possibles, à documenter et non à présumer. D'une part le cadre de protection des données UE–États-Unis, qui suppose que l'entité destinataire soit effectivement certifiée à date et que la certification couvre les données en cause — la liste est publique et doit être consultée puis archivée. D'autre part les clauses contractuelles types, module 3, sous-traitant vers sous-traitant ultérieur, intégrées à l'avenant de traitement de données de Google Cloud. Conserver la preuve d'acceptation et la version applicable.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 45 et 46 RGPD ; décision d'exécution (UE) 2023/1795 du 10 juillet 2023 ; décision d'exécution (UE) 2021/914 du 4 juin 2021</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Veille</td>
+        <td data-l="Obligation">Suivi de la validité du cadre d'adéquation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Le recours en annulation formé contre la décision d'adéquation a été rejeté par le Tribunal de l'Union européenne le 3 septembre 2025, mais le cadre reste soumis à réexamens périodiques et à un aléa contentieux et politique. <strong>Vérifier son statut à la date de mise en œuvre.</strong> Deux précédents en dix ans invitent à ne pas construire l'architecture sur ce seul fondement : maintenir en parallèle des clauses contractuelles types opérantes.</td>
+        <td data-l="Texte de référence"><span class="ref">Trib. UE, 3 septembre 2025, Latombe c. Commission, aff. T-553/23 ; CJUE, 6 octobre 2015, Schrems, C-362/14 ; CJUE, 16 juillet 2020, Schrems II, C-311/18</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Analyse de transfert</td>
+        <td data-l="Obligation">Évaluation du niveau de protection dans le pays tiers et adoption de mesures complémentaires si nécessaire.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Rédiger une analyse d'impact des transferts, même succincte : données concernées, législation du pays tiers, risque d'accès par les autorités, mesures techniques retenues (chiffrement, gestion des clés, pseudonymisation), mesures contractuelles et organisationnelles. Document exigé en contrôle et de plus en plus demandé par les acheteurs professionnels dans leurs questionnaires fournisseurs.</td>
+        <td data-l="Texte de référence"><span class="ref">CEPD, recommandations 01/2020 sur les mesures complémentaires, version 2.0 du 18 juin 2021 ; art. 48 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Politique de confidentialité</td>
+        <td data-l="Obligation">Information des personnes sur l'existence du transfert, son fondement et les moyens d'obtenir copie des garanties.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Mention explicite dans les deux politiques de confidentialité, et reprise dans le contrat de sous-traitance afin que le restaurateur puisse à son tour informer ses clients.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 13-1 f) et art. 15-2 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Architecture</td>
+        <td data-l="Obligation">Minimisation du transfert.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Leviers disponibles avant tout changement de fournisseur : création des ressources en région européenne, clés de chiffrement gérées par le client, contrôles de souveraineté proposés par Google Cloud, limitation des données transmises aux services sans résidence européenne. À défaut, un hébergement européen non soumis au droit extraterritorial américain devient un argument commercial autant qu'une réduction de risque.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 5-1 c) et art. 25 RGPD (protection dès la conception)</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s8">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Bandeau cookies et traceurs</h2></div>
+  <p class="sec-note">Domaine où la CNIL contrôle d'office, sans plainte préalable, et où la non-conformité est visible depuis l'extérieur en quelques secondes. Deux périmètres distincts sont à traiter : votre site vitrine, et l'interface de commande servie sous la responsabilité du restaurateur.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Aucune lecture ni aucun dépôt avant recueil du consentement, hors traceurs strictement nécessaires à la fourniture du service expressément demandé.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Test à réaliser immédiatement : ouvrir le site en navigation privée, inspecter le stockage local et les cookies avant tout clic. Le manquement le plus fréquent est le chargement de la balise d'analytique dès l'arrivée sur la page. Sont exemptés : panier, authentification, préférence de langue, équilibrage de charge, mémorisation du refus.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 82 de la loi n° 78-17 du 6 janvier 1978 modifiée ; art. 5.3 de la directive 2002/58/CE</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Refuser doit être aussi simple qu'accepter.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Un bouton « Tout refuser » au même niveau que « Tout accepter », dès le premier écran, de même taille, même contraste, même mise en forme. Sont irréguliers : le refus relégué derrière « Paramétrer », le refus en lien texte face à un bouton coloré, la croix de fermeture ambiguë.</td>
+        <td data-l="Texte de référence"><span class="ref">Délibération CNIL n° 2020-091 du 17 septembre 2020 (lignes directrices) ; recommandation n° 2020-092 du 17 septembre 2020</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Consentement libre, spécifique, éclairé et univoque ; absence de case pré-cochée ; poursuite de la navigation ne valant pas acceptation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Vérifier le paramétrage par défaut de votre plateforme de gestion du consentement : plusieurs solutions livrent des finalités pré-cochées ou un intérêt légitime activé par défaut pour la mesure d'audience.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 4-11 et art. 7 RGPD ; CJUE, 1<sup>er</sup> octobre 2019, Planet49, C-673/17</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Preuve du consentement, retrait aussi aisé que le recueil, durée de validité limitée.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Conserver la preuve horodatée des choix, exposer un lien permanent « Gérer mes cookies » en pied de page, redemander le consentement au bout de six mois, limiter les traceurs à treize mois et les données qui en sont issues à vingt-cinq mois.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 7-1 et 7-3 RGPD ; recommandation CNIL n° 2020-092</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Inventaire des traceurs</td>
+        <td data-l="Obligation">Information préalable, par finalité, sur l'identité des responsables et la durée de vie des traceurs.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Dresser l'inventaire réel des traceurs, ce que la liste d'outils tiers laissée vide dans votre demande ne permet pas aujourd'hui. Point d'attention pour votre pile : l'analytique Google, dans ses versions actuelles comme dans sa déclinaison Firebase, ne satisfait pas les critères d'exemption de la mesure d'audience — finalité strictement limitée, absence de recoupement, absence de suivi inter-sites — et requiert donc un consentement.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 82 al. 3 de la loi n° 78-17 ; critères d'exemption CNIL relatifs à la mesure d'audience</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Interface de commande</td>
+        <td data-l="Obligation">Répartition des rôles pour le recueil du consentement dans l'interface servie aux consommateurs.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Le responsable y est le restaurateur, mais le bandeau est techniquement le vôtre. Si votre produit dépose un traceur non essentiel sans consentement chez tous vos clients, vous exposez l'ensemble de votre base d'un seul geste. Traiter le paramétrage dans le contrat de sous-traitance et le verrouiller par défaut sur la configuration la plus protectrice.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 82 loi n° 78-17 ; art. 28-3 a) RGPD ; art. 26 RGPD si responsabilité conjointe</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Régime des sanctions.</td>
+        <td data-l="Statut"><span class="pill s-na">Pour mémoire</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">La CNIL sanctionne les manquements à l'art. 82 sans mise en demeure préalable et par contrôle en ligne. Les décisions publiées visent des acteurs majeurs, mais la méthode de contrôle est automatisable et s'applique à tous.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 20-III de la loi n° 78-17 ; délib. CNIL SAN-2020-012 ; SAN-2021-023 ; SAN-2021-024</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Bandeau cookies</td>
+        <td data-l="Obligation">Licéité d'un éventuel mur de traceurs.</td>
+        <td data-l="Statut"><span class="pill s-na">Non applicable a priori</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Sans objet si vous ne conditionnez pas l'accès au service à l'acceptation des traceurs. À réexaminer si un modèle publicitaire est introduit : l'interdiction n'est pas de principe, mais l'appréciation est stricte et se fait au cas par cas.</td>
+        <td data-l="Texte de référence"><span class="ref">CE, 19 juin 2020, n° 434684 ; critères CNIL du 16 mai 2022</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s9">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Accessibilité numérique (European Accessibility Act)</h2></div>
+  <p class="sec-note">Point sur lequel votre exposition dépend entièrement d'une donnée non fournie : votre effectif et votre chiffre d'affaires. L'exemption applicable est réelle, mais elle est plus étroite qu'on ne le croit et ne protège pas votre modèle économique.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Service de commande</td>
+        <td data-l="Obligation">Accessibilité des services de commerce électronique, applicable depuis le 28 juin 2025.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Déterminer d'abord si vous relevez de l'exemption de micro-entreprise, qui suppose <strong>cumulativement</strong> moins de 10 personnes occupées et un chiffre d'affaires annuel ou un total de bilan n'excédant pas 2 M€. Attention au faux ami : « micro-entreprise » s'entend ici au sens européen, et non du régime fiscal du micro-entrepreneur.</td>
+        <td data-l="Texte de référence"><span class="ref">Directive (UE) 2019/882 du 17 avril 2019, art. 2 et art. 4 §5 ; définition art. 3, 23° ; ordonnance n° 2023-859 du 6 septembre 2023 ; décret n° 2023-931 du 9 octobre 2023 ; art. L.412-13 C. conso</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Service de commande</td>
+        <td data-l="Obligation">Portée réelle de l'exemption.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Point déterminant, souvent manqué : l'exemption vous bénéficie à vous, pas à vos clients. Un restaurateur ou un groupe de restauration atteignant les seuils est tenu de proposer un service de vente en ligne accessible — or ce service, c'est votre interface. Votre exemption ne le dispense de rien et vous rend, de fait, incapable de le servir en conformité. L'accessibilité devient donc un prérequis commercial dès que vous visez autre chose que des établissements indépendants.</td>
+        <td data-l="Texte de référence"><span class="ref">Directive (UE) 2019/882, art. 2 §2 c)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Audit technique</td>
+        <td data-l="Obligation">Conformité au référentiel technique applicable.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Se référer à la norme harmonisée EN 301 549, qui reprend les WCAG 2.1 niveau AA. Points critiques sur un tunnel de commande : contraste des textes sur photographies de plats, taille des cibles tactiles, navigation entièrement au clavier, étiquetage explicite des champs, messages d'erreur associés aux champs, absence de piège au focus dans les fenêtres modales de paiement, alerte avant expiration de session, alternatives textuelles des visuels de menu.</td>
+        <td data-l="Texte de référence"><span class="ref">Norme harmonisée EN 301 549 V3.2.1 ; WCAG 2.1 niveau AA</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Déclaration</td>
+        <td data-l="Obligation">Information sur l'accessibilité du service et conservation de la documentation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Si vous êtes assujetti, publier les informations relatives à l'accessibilité dans les conditions générales et sur le site, décrire la manière dont le service répond aux exigences, et conserver la documentation. Contrôle assuré par la DGCCRF ; le quantum des sanctions administratives applicables est <strong>à vérifier</strong> au regard des textes d'application en vigueur.</td>
+        <td data-l="Texte de référence"><span class="ref">Directive (UE) 2019/882, annexe V ; ordonnance n° 2023-859 ; décret n° 2023-931</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Régime distinct</td>
+        <td data-l="Obligation">Obligation d'accessibilité de l'article 47 de la loi handicap.</td>
+        <td data-l="Statut"><span class="pill s-na">Hors champ a priori</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Régime distinct, applicable au secteur public et aux entreprises dont le chiffre d'affaires réalisé en France excède 250 M€. Ne pas confondre les deux dispositifs ni les deux référentiels : c'est ce régime qui impose le RGAA et la déclaration de conformité avec taux, pas l'acte européen.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 47 de la loi n° 2005-102 du 11 février 2005 ; décret n° 2019-768 du 24 juillet 2019 ; RGAA 4.1</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="s10">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Facturation électronique</h2></div>
+  <p class="sec-note">Seule rubrique du dossier comportant une échéance à moins de deux semaines. Elle appelle une décision opérationnelle immédiate, indépendante du reste de la mise en conformité.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Document</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Document">Facturation</td>
+        <td data-l="Obligation">Obligation de <strong>réception</strong> des factures électroniques pour tout assujetti à la TVA, sans condition de taille, au 1<sup>er</sup> septembre 2026.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Échéance à douze jours. Vérifier le calendrier en vigueur à date, un report par décret restant possible, puis vous mettre en capacité de recevoir. Sans raccordement, vos propres fournisseurs assujettis ne pourront plus vous adresser de facture régulière.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 289 bis CGI, issu de l'ordonnance n° 2021-1190 du 15 septembre 2021 ; calendrier fixé par l'art. 91 de la loi n° 2023-1322 du 29 décembre 2023</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Facturation</td>
+        <td data-l="Obligation">Obligation d'<strong>émission</strong> : 1<sup>er</sup> septembre 2026 pour les grandes entreprises et les entreprises de taille intermédiaire, 1<sup>er</sup> septembre 2027 pour les petites et moyennes entreprises et les microentreprises.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Déterminer votre catégorie de taille, ce que la structure juridique non renseignée ne permet pas de faire. Dans la quasi-totalité des configurations d'un éditeur en amorçage, l'émission bascule en 2027 — mais la réception, elle, tombe dans douze jours.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 289 bis CGI ; art. 91 de la loi n° 2023-1322</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Prestataire</td>
+        <td data-l="Obligation">Recours à une plateforme de dématérialisation partenaire immatriculée par l'administration fiscale.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Choisir et contractualiser une plateforme immatriculée. Le portail public de facturation n'assure pas de service gratuit d'échange de factures : il ne joue que le rôle d'annuaire des destinataires et de concentrateur des données transmises à l'administration. Vérifier au passage que votre outil de facturation actuel est raccordé ou raccordable, et signer un contrat de sous-traitance avec cette plateforme, qui traitera des données personnelles.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 289 bis et 290 B CGI ; décret n° 2022-1299 du 7 octobre 2022 ; arrêté du 7 octobre 2022</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Modèle de facture</td>
+        <td data-l="Obligation">Nouvelles mentions obligatoires : numéro SIREN du client, adresse de livraison des biens si différente de l'adresse de facturation, nature de l'opération (livraison de biens, prestation de services ou les deux), mention de l'option pour le paiement de la taxe d'après les débits.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Mettre à jour le gabarit de facture et collecter dès à présent le SIREN de chaque client restaurateur : c'est la donnée qui manque le plus souvent au moment du basculement, et elle conditionne le routage dans l'annuaire.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 242 nonies A annexe II CGI, modifié par le décret n° 2022-1299 du 7 octobre 2022</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Format</td>
+        <td data-l="Obligation">Formats socle interopérables.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Un PDF ordinaire adressé par courriel ne constitue pas une facture électronique au sens de la réforme. Les formats socle sont Factur-X, UBL et CII, sur la base de la norme européenne EN 16931.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 289 bis CGI ; norme EN 16931 ; directive 2014/55/UE</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Produit</td>
+        <td data-l="Obligation">Transmission des données de transaction et de paiement pour les opérations avec des non-assujettis.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Enjeu stratégique et non seulement réglementaire. Vos clients restaurateurs réalisent des ventes à des consommateurs : ils seront soumis à l'obligation de transmission des données de transaction, et la source de ces données est précisément votre outil. Deux options, à trancher explicitement : offrir le service, ce qui constitue un avantage concurrentiel fort et durable ; ou l'exclure noir sur blanc de votre périmètre contractuel. Le silence des CGV vous expose à une responsabilité implicite le jour où un client sera redressé.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 290 et 290 A CGI</span></td>
+      </tr>
+      <tr>
+        <td data-l="Document">Facturation</td>
+        <td data-l="Obligation">Régime de TVA applicable à vos propres prestations.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Dépend de la structure et du modèle de revenu, non renseignés. Vérifier l'exigibilité de la TVA sur les prestations de services, l'éventuelle option pour les débits, l'application de la franchise en base et sa mention obligatoire, ainsi que le régime applicable si vous facturez des clients établis dans d'autres États membres.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 269-2 c) CGI ; art. 293 B CGI ; art. 259 CGI</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="sA">
+  <div class="sec-head"><span class="sec-num">+</span><h2>Hors périmètre demandé, mais applicable à votre modèle</h2></div>
+  <p class="sec-note">Votre liste de dix points est solide et couvre l'essentiel du socle. Neuf régimes supplémentaires s'appliquent néanmoins spécifiquement à une plateforme de commande en restauration, dont deux au moins présentent un risque supérieur à plusieurs des points demandés. Ils sont donc traités ici plutôt qu'omis.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Régime</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Régime">Droit des paiements</td>
+        <td data-l="Obligation">Qualification éventuelle de prestataire de services de paiement.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat impératif</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Le point le plus lourd du dossier. Si les fonds versés par les consommateurs transitent, même quelques heures, par un compte ouvert à votre nom avant reversement au restaurateur, vous exécutez une opération de paiement pour compte de tiers et devez être agréé établissement de paiement, ou enregistré comme agent d'un prestataire agréé, ou entrer dans une exclusion légale. Les montages de type comptes connectés, dans lesquels le prestataire de paiement est seul teneur des fonds et le reversement automatique, neutralisent le risque — <em>à condition d'être correctement paramétrés</em>. Faire valider le schéma de flux par un avocat en droit bancaire avant toute mise à l'échelle du modèle à la commission.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.314-1 II CMF ; art. L.521-1 et L.523-1 CMF ; directive (UE) 2015/2366, art. 3 b) ; sanction art. L.572-4 CMF : 3 ans d'emprisonnement et 375 000 €</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Règlement plateformes-entreprises</td>
+        <td data-l="Obligation">Obligations des services d'intermédiation en ligne envers leurs entreprises utilisatrices.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Applicable si votre interface permet à des professionnels d'offrir des biens à des consommateurs en vue d'une transaction directe — ce qui décrit exactement une solution de commande en ligne. Conséquences concrètes : conditions générales rédigées en termes clairs, préavis de quinze jours avant toute modification, motivation écrite et préavis de trente jours avant toute suspension ou résiliation du compte d'un restaurateur, transparence des critères de classement si vous en opérez un, information sur l'accès aux données. Le système interne de traitement des plaintes et la désignation de médiateurs ne s'imposent pas aux petites entreprises. La clause de résiliation immédiate de vos CGV est très probablement incompatible avec ce régime.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2019/1150 du 20 juin 2019, art. 3, 4, 5, 9, 11 et 12</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Règlement sur les services numériques</td>
+        <td data-l="Obligation">Obligations applicables aux services d'hébergement et aux plateformes en ligne.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Si vous stockez des contenus fournis par vos clients — fiches, photographies, descriptifs, avis — vous êtes au minimum un service d'hébergement : point de contact unique publié, conditions générales transparentes, mécanisme de notification et d'action, motivation des décisions de retrait. Si l'interface met en relation consommateurs et professionnels, s'ajoutent les obligations de traçabilité des professionnels. Les micro et petites entreprises sont dispensées des obligations propres aux plateformes en ligne.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2022/2065, art. 3 g), 11, 12, 14, 16, 17, 19 et 30 à 32</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Règlement sur les données</td>
+        <td data-l="Obligation">Clauses de changement de fournisseur applicables aux services de traitement de données.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Un logiciel en tant que service entre dans la définition. Obligations déjà en vigueur : clauses contractuelles imposées sur le changement de fournisseur, préavis de résiliation plafonné à deux mois, période transitoire de trente jours, assistance à la migration, effacement documenté. La suppression des frais de changement est par ailleurs programmée. Ces clauses n'existent dans presque aucun jeu de CGV SaaS rédigé avant 2025 : à intégrer lors de la refonte.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2023/2854, art. 2 8°, 23 à 31, applicable depuis le 12 septembre 2025</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Opérateur de plateforme</td>
+        <td data-l="Obligation">Loyauté de l'information, information sur les obligations fiscales et sociales, déclaration annuelle des opérateurs de plateforme.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span> <span class="lawyer">Avocat</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Question de qualification, à trancher : un logiciel en marque blanche, où chaque restaurateur exploite son propre canal de vente, n'est en principe pas un opérateur de plateforme ; une place de marché référençant plusieurs établissements l'est, avec obligation déclarative annuelle à déposer avant le 31 janvier. La réponse dépend d'un élément que vous n'avez pas précisé : marque blanche ou annuaire multi-restaurants.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.111-7 C. conso ; art. 242 bis CGI ; art. 1649 ter A CGI ; directive (UE) 2021/514 (DAC7)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Règlement sur l'intelligence artificielle</td>
+        <td data-l="Obligation">Obligations de transparence à l'égard des personnes exposées à un système d'IA.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Applicables depuis le 2 août 2026, soit depuis dix-huit jours. Si l'interface comporte un agent conversationnel, une prise de commande vocale, une recommandation de plats générée ou des descriptifs produits générés, informer clairement la personne qu'elle interagit avec un système d'IA et marquer les contenus générés. À écarter formellement si vous n'utilisez aucune de ces briques.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) 2024/1689, art. 50 ; interdictions de l'art. 5 applicables depuis le 2 février 2025</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Droit de la consommation alimentaire</td>
+        <td data-l="Obligation">Informations obligatoires que l'interface doit permettre d'afficher : allergènes en vente à distance avant conclusion de l'achat, origine des viandes en restauration, mention « fait maison », prix toutes taxes et service compris, bouton de commande portant la mention « commande avec obligation de paiement », récapitulatif avant validation, information sur l'absence de droit de rétractation.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-h">Élevé</span></td>
+        <td data-l="Action corrective">Ces obligations pèsent juridiquement sur le restaurateur, mais elles s'exécutent dans votre interface. Si le produit ne permet pas de les respecter, votre responsabilité contractuelle est engagée et votre client se retournera contre vous après un contrôle. Deux points sont matériellement structurants : les allergènes doivent être accessibles <em>avant</em> la conclusion de la commande et sans surcoût, ce qui suppose un champ dédié par produit et non une mention générale en bas de page ; et l'absence de droit de rétractation pour les denrées périssables et les services de restauration à date déterminée doit être <strong>portée à la connaissance du consommateur</strong>, l'exception n'étant pas d'application tacite. À traiter comme une grille de conformité produit et à documenter dans les CGV.</td>
+        <td data-l="Texte de référence"><span class="ref">Règlement (UE) n° 1169/2011, art. 14 et 44 ; décret n° 2015-447 du 17 avril 2015 ; décret n° 2002-1465 ; décret n° 2022-65 du 26 janvier 2022 ; art. L.122-19 et D.121-13-1 C. conso ; art. L.112-1 C. conso ; arrêté du 27 mars 1987 ; art. L.221-5, L.221-14 et L.221-28 4° et 12° C. conso ; art. 1127-1 et 1127-2 C. civ</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Titres-restaurant</td>
+        <td data-l="Obligation">Acceptation de titres-restaurant dématérialisés, le cas échéant.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Sans objet si vous n'intégrez pas ce moyen de paiement. Si vous l'intégrez ou l'envisagez, le régime est contraignant et évolutif : plafond journalier, restrictions d'usage et de jours, conditions d'affiliation. Vérifier l'état du droit à date, plusieurs dispositions ayant fait l'objet de prorogations successives.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. L.3262-1 et s. et R.3262-1 et s. C. trav. ; plafond art. R.3262-7 C. trav.</span></td>
+      </tr>
+      <tr>
+        <td data-l="Régime">Cybersécurité et assurance</td>
+        <td data-l="Obligation">Directive sur la cybersécurité des réseaux et systèmes d'information ; couverture en responsabilité civile professionnelle.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Les fournisseurs de services d'informatique en nuage sont visés, mais seulement au-delà des seuils de la moyenne entreprise : hors champ à votre échelle, à réexaminer en cas de croissance. Vérifier en revanche l'existence d'une assurance de responsabilité civile professionnelle couvrant la perte de données, le risque cyber et l'atteinte aux données personnelles, et sa cohérence avec le plafond de responsabilité stipulé dans vos CGV — un plafond contractuel supérieur à la garantie assurée ne protège personne.</td>
+        <td data-l="Texte de référence"><span class="ref">Directive (UE) 2022/2555 (NIS 2), annexe I ; transposition française à vérifier à date</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="manquants">
+  <div class="sec-head"><span class="sec-num">§</span><h2>Documents manquants</h2></div>
+  <p class="sec-note">Aucune des pièces ci-dessous ne m'a été transmise. La liste est ordonnée par blocs fonctionnels ; elle constitue le sommaire du dossier de conformité que vous devriez pouvoir présenter en cas de contrôle ou d'audit fournisseur.</p>
+
+  <h3 class="sub">Bloc contractuel</h3>
+  <ul class="doc">
+    <li><b>Conditions générales de vente et d'utilisation B2B</b><span>Pièce maîtresse. Absente du dossier, aucune clause n'a pu être contrôlée.</span></li>
+    <li><b>Annexe ou contrat de sous-traitance au titre de l'article 28</b><span>Avec la liste des sous-traitants ultérieurs, l'annexe sécurité et l'annexe transferts.</span></li>
+    <li><b>Convention de niveau de service</b><span>Disponibilité, maintenance, support, crédits de service.</span></li>
+    <li><b>Contrat-cadre ou bon de commande type</b><span>Si vous contractualisez hors parcours en ligne.</span></li>
+    <li><b>Mentions légales</b><span>Page publiée sur le site et sur l'interface de commande.</span></li>
+    <li><b>Conditions générales destinées aux consommateurs finaux</b><span>Et la réponse à la question de savoir qui les édite, vous ou le restaurateur.</span></li>
+    <li><b>Grille tarifaire datée et versionnée</b><span>Ainsi que les conditions de règlement associées.</span></li>
+    <li><b>Modèle de facture</b><span>Pour contrôle des mentions du Code de commerce et du Code général des impôts.</span></li>
+    <li><b>Preuve d'acceptation des conditions générales</b><span>Mécanisme, horodatage, archivage des versions successives.</span></li>
+  </ul>
+
+  <h3 class="sub">Bloc protection des données</h3>
+  <ul class="doc">
+    <li><b>Politique de confidentialité du site et du back-office</b><span>Périmètre où vous êtes responsable de traitement.</span></li>
+    <li><b>Politique de confidentialité de l'interface de commande</b><span>Périmètre où le restaurateur est responsable et vous sous-traitant.</span></li>
+    <li><b>Registre des traitements en qualité de responsable</b><span>Article 30-1.</span></li>
+    <li><b>Registre des traitements en qualité de sous-traitant</b><span>Article 30-2. Rarement tenu, pourtant obligatoire ici.</span></li>
+    <li><b>Cartographie des traitements et des flux de données</b><span>Support de la répartition des rôles entre vous et vos clients.</span></li>
+    <li><b>Analyse d'impact, ou conclusion motivée de non-nécessité</b><span>Le document de non-nécessité a la même valeur probatoire en contrôle.</span></li>
+    <li><b>Analyses de mise en balance pour les traitements fondés sur l'intérêt légitime</b><span>Prospection et sécurité notamment.</span></li>
+    <li><b>Procédure d'exercice des droits et procédure de gestion des violations</b><span>Avec le registre interne des violations.</span></li>
+    <li><b>Politique de conservation et preuve des purges effectives</b><span>La matrice ne suffit pas, l'exécution technique est contrôlée.</span></li>
+    <li><b>Engagements de confidentialité des personnes autorisées</b><span>Salariés, prestataires, stagiaires, et charte informatique.</span></li>
+    <li><b>Contrats de sous-traitance signés avec chacun de vos fournisseurs</b><span>Hébergeur, prestataire de paiement, e-mail transactionnel, support, analytique, sauvegarde.</span></li>
+  </ul>
+
+  <h3 class="sub">Bloc transferts internationaux</h3>
+  <ul class="doc">
+    <li><b>Avenant de traitement de données Google Cloud accepté</b><span>Avec la date et la version applicable.</span></li>
+    <li><b>Inventaire des services Firebase utilisés et de leur région</b><span>Point sur lequel une vérification service par service est indispensable.</span></li>
+    <li><b>Preuve de la certification de l'entité destinataire au cadre d'adéquation</b><span>Consultée et archivée à date.</span></li>
+    <li><b>Analyse d'impact des transferts et mesures complémentaires</b><span>De plus en plus demandée dans les questionnaires d'achat de vos clients.</span></li>
+  </ul>
+
+  <h3 class="sub">Bloc technique et produit</h3>
+  <ul class="doc">
+    <li><b>Copie d'écran du bandeau cookies</b><span>Premier niveau et écran de préférences.</span></li>
+    <li><b>Inventaire des traceurs effectivement déposés</b><span>Relevé technique, non déclaratif.</span></li>
+    <li><b>Configuration des règles de sécurité Firebase</b><span>Firestore, base temps réel et stockage.</span></li>
+    <li><b>Audit d'accessibilité du tunnel de commande</b><span>Au regard de la norme harmonisée applicable.</span></li>
+    <li><b>Politique de sauvegarde et preuve d'un test de restauration</b><span>La sauvegarde non testée n'est pas une mesure de sécurité.</span></li>
+  </ul>
+
+  <h3 class="sub">Bloc société, fiscal et assurantiel</h3>
+  <ul class="doc">
+    <li><b>Extrait d'immatriculation et statuts</b><span>Pour établir les mentions légales et la catégorie de taille.</span></li>
+    <li><b>Contrat avec une plateforme de dématérialisation partenaire</b><span>Échéance de réception au 1<sup>er</sup> septembre 2026.</span></li>
+    <li><b>Attestation de responsabilité civile professionnelle</b><span>Avec le détail des garanties et des plafonds.</span></li>
+    <li><b>Schéma des flux financiers</b><span>Pièce déterminante pour la qualification au regard du droit des paiements.</span></li>
+  </ul>
+</section>
+
+<section id="plan">
+  <div class="sec-head"><span class="sec-num">→</span><h2>Plan d'action par priorité</h2></div>
+  <p class="sec-note">Priorisation par produit de la gravité de la sanction encourue et de l'imminence de l'échéance, et non par ordre des rubriques contrôlées. Les quatre actions du premier bloc sont indépendantes les unes des autres et peuvent être menées en parallèle.</p>
+
+  <div class="pgroup p0">
+    <header><span class="ptag">P0</span><h3>Échéance imminente ou sanction pénale</h3><span class="when">sous 15 jours</span></header>
+    <ol class="plan">
+      <li><b>Contractualiser une plateforme de dématérialisation partenaire et vérifier la capacité de réception</b>
+        L'obligation de réception s'impose dans douze jours à tout assujetti, sans seuil. Vérifier au préalable le calendrier en vigueur, un report par décret restant possible. Collecter en parallèle le SIREN de chaque client.
+        <span class="ref">Art. 289 bis CGI ; art. 91 de la loi n° 2023-1322 du 29 décembre 2023</span></li>
+      <li><b>Faire trancher la qualification au regard du droit des paiements</b>
+        Établir le schéma exact des flux financiers et le soumettre à un avocat en droit bancaire. L'exercice illégal de la profession est un délit ; le risque est disqualifiant pour le modèle à la commission et doit être levé avant toute mise à l'échelle.
+        <span class="ref">Art. L.314-1 II et L.572-4 CMF ; directive (UE) 2015/2366, art. 3 b)</span></li>
+      <li><b>Auditer les règles de sécurité Firebase</b>
+        Test d'accès non authentifié sur Firestore, la base temps réel et le stockage. Une base de commandes exposée réunit identité, téléphone, adresse et habitudes de consommation : c'est le scénario de violation le plus probable de votre architecture, et le plus rapide à écarter.
+        <span class="ref">Art. 32 RGPD ; art. 33 et 34 RGPD en cas de violation</span></li>
+      <li><b>Mettre en place une annexe de sous-traitance avec vos clients</b>
+        Intégrer une annexe « protection des données » aux conditions générales pour les nouveaux clients, et proposer un avenant aux clients existants. L'absence de contrat écrit relève du plafond de sanction le plus élevé, et un simple avenant type suffit à sortir de l'infraction.
+        <span class="ref">Art. 28-3 RGPD ; sanction art. 83-4 a)</span></li>
+      <li><b>Publier des mentions légales complètes</b>
+        Action la moins coûteuse du plan, sanctionnée pénalement et vérifiable en trente secondes par un tiers. Requiert au préalable d'arrêter la structure juridique.
+        <span class="ref">Art. 6-III-1 et art. 19 LCEN ; sanction art. 6-VI-1</span></li>
+    </ol>
+  </div>
+
+  <div class="pgroup p1">
+    <header><span class="ptag">P1</span><h3>Socle contractuel et documentaire</h3><span class="when">sous 1 mois</span></header>
+    <ol class="plan">
+      <li><b>Rédiger ou refondre les conditions générales B2B</b>
+        En intégrant dès la première version les éléments que la plupart des modèles omettent : délais et pénalités de paiement, indemnité forfaitaire, limitation de responsabilité calibrée pour résister à l'article 1170 du Code civil, licence et propriété des données, réversibilité et changement de fournisseur, niveau de service, préavis de modification compatible avec le règlement plateformes-entreprises.
+        <span class="ref">Art. L.441-1, L.441-9 et L.441-10 C. com ; art. 1170 et 1171 C. civ ; règlement (UE) 2023/2854 ; règlement (UE) 2019/1150</span></li>
+      <li><b>Produire les deux politiques de confidentialité et les deux registres</b>
+        Un jeu documentaire par casquette. C'est la traduction opérationnelle de l'analyse que vous avez vous-même posée, et l'erreur la plus fréquente consiste à n'en produire qu'un.
+        <span class="ref">Art. 12 à 14 RGPD ; art. 30-1 et 30-2 RGPD</span></li>
+      <li><b>Mettre le bandeau cookies en conformité</b>
+        Refus au même niveau que l'acceptation dès le premier écran, aucun dépôt avant consentement, preuve conservée, retrait permanent, durées limitées. Contrôlé d'office par la CNIL et visible de l'extérieur.
+        <span class="ref">Art. 82 de la loi n° 78-17 ; délib. CNIL n° 2020-091 et recommandation n° 2020-092</span></li>
+      <li><b>Constituer le dossier des transferts hors UE</b>
+        Inventaire des services Firebase et de leurs régions, avenant Google accepté et daté, preuve de certification consultée, analyse d'impact des transferts, clauses contractuelles types en fondement subsidiaire.
+        <span class="ref">Art. 44 à 46 RGPD ; recommandations CEPD 01/2020</span></li>
+      <li><b>Corriger le gabarit de facture</b>
+        Mentions du Code de commerce, mentions fiscales existantes et nouvelles mentions issues de la réforme. Sanction administrative immédiate, sans litige préalable.
+        <span class="ref">Art. L.441-9 C. com ; art. 242 nonies A ann. II CGI</span></li>
+    </ol>
+  </div>
+
+  <div class="pgroup">
+    <header><span class="ptag">P2</span><h3>Qualification et conformité produit</h3><span class="when">sous 3 mois</span></header>
+    <ol class="plan">
+      <li><b>Statuer sur l'assujettissement à l'acte européen sur l'accessibilité</b>
+        Vérifier le seuil de micro-entreprise au sens européen. Quel que soit le résultat, engager la mise en accessibilité du tunnel de commande : l'exemption ne dispense pas vos clients atteignant les seuils, et elle vous fermerait ce segment de marché.
+        <span class="ref">Directive (UE) 2019/882, art. 4 §5 ; norme EN 301 549 ; WCAG 2.1 AA</span></li>
+      <li><b>Trancher les qualifications de plateforme</b>
+        Règlement plateformes-entreprises, règlement sur les services numériques, opérateur de plateforme en ligne et obligation déclarative annuelle. Ces quatre qualifications dépendent d'un même fait : marque blanche ou annuaire multi-restaurants. Une seule décision produit quatre réponses.
+        <span class="ref">Règlement (UE) 2019/1150 ; règlement (UE) 2022/2065 ; art. L.111-7 C. conso ; art. 1649 ter A CGI</span></li>
+      <li><b>Écrire et éprouver les procédures internes</b>
+        Gestion des violations avec délai contractuel d'alerte du restaurateur, exercice des droits avec circuit de réorientation, purges automatisées, analyse d'impact ou conclusion motivée de non-nécessité.
+        <span class="ref">Art. 33 et 34 RGPD ; art. 12 à 22 RGPD ; art. 35 RGPD</span></li>
+      <li><b>Établir la grille de conformité alimentaire du produit</b>
+        Allergènes accessibles avant conclusion de la commande, origine des viandes, mention « fait maison », prix toutes taxes comprises, libellé du bouton de commande, information sur l'absence de droit de rétractation. À traiter comme une exigence produit, puis à documenter dans les conditions générales — c'est autant une réduction de risque qu'un argument de vente.
+        <span class="ref">Règlement (UE) n° 1169/2011 ; art. L.221-5, L.221-14 et L.221-28 C. conso</span></li>
+      <li><b>Arbitrer la position sur la transmission des données de transaction</b>
+        Offrir le service à vos clients ou l'exclure expressément du périmètre contractuel. Le silence est la seule option qui vous expose.
+        <span class="ref">Art. 290 et 290 A CGI</span></li>
+    </ol>
+  </div>
+
+  <div class="pgroup">
+    <header><span class="ptag">P3</span><h3>Maintien en conformité</h3><span class="when">en continu</span></header>
+    <ol class="plan">
+      <li><b>Revue annuelle des sous-traitants et des transferts</b>
+        Liste des sous-traitants ultérieurs, validité du cadre d'adéquation, régions d'hébergement, avenants signés.
+        <span class="ref">Art. 28-2 et 44 à 46 RGPD</span></li>
+      <li><b>Veille sur les échéances mobiles</b>
+        Calendrier de la facturation électronique, textes d'application de l'accessibilité, franchissement des seuils de la directive cybersécurité en cas de croissance.
+        <span class="ref">Art. 289 bis CGI ; directive (UE) 2019/882 ; directive (UE) 2022/2555</span></li>
+      <li><b>Versionnage et archivage des documents contractuels</b>
+        Historique des versions des conditions générales, preuves d'acceptation, tests de restauration des sauvegardes, journal des analyses de mise en balance.
+        <span class="ref">Art. 5-2 RGPD (responsabilité) ; art. 1119 C. civ</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="avocat">
+  <div class="sec-head"><span class="sec-num">⚖</span><h2>Points nécessitant l'avis d'un avocat</h2></div>
+  <p class="sec-note">Signalés explicitement, comme demandé. Les cinq premiers ne relèvent pas de la rédaction documentaire mais de la qualification juridique : aucun modèle de contrat, aussi complet soit-il, ne peut y suppléer.</p>
+  <ul class="doc">
+    <li><b>Qualification au regard du droit des paiements</b><span>Le schéma de flux détermine si vous exercez une activité réglementée. Sanction pénale, risque disqualifiant pour le modèle à la commission. Avocat en droit bancaire et financier.</span></li>
+    <li><b>Frontière entre responsable de traitement et sous-traitant</b><span>Votre analyse est juste en l'état, mais tout usage propre des données de commande la déplace. À trancher avant, et non après, la mise en place d'analyses produit ou de fonctionnalités fondées sur ces données.</span></li>
+    <li><b>Applicabilité du règlement plateformes-entreprises et du règlement sur les services numériques</b><span>Qualification déterminante pour vos clauses de résiliation, de modification unilatérale et de classement.</span></li>
+    <li><b>Qualification d'opérateur de plateforme en ligne et obligation déclarative annuelle</b><span>Enjeu fiscal direct, avec obligation déclarative périodique et sanction propre.</span></li>
+    <li><b>Assujettissement à l'acte européen sur l'accessibilité</b><span>L'appréciation du seuil de micro-entreprise au sens européen, distinct du régime fiscal du micro-entrepreneur, mérite d'être confirmée par écrit.</span></li>
+    <li><b>Rédaction de la clause limitative de responsabilité</b><span>Le seul type de clause dont la mauvaise rédaction produit l'effet inverse de celui recherché : réputée non écrite, elle laisse la responsabilité sans plafond.</span></li>
+    <li><b>Contrôle des clauses au regard du déséquilibre significatif</b><span>Articulation entre le Code de commerce et l'article 1171 du Code civil, débattue en doctrine et en jurisprudence.</span></li>
+    <li><b>Clauses relatives aux données agrégées et à l'anonymisation</b><span>La qualification d'anonymisation, par opposition à la pseudonymisation, conditionne la licéité de tout usage secondaire.</span></li>
+    <li><b>Répartition contractuelle des responsabilités sur l'information alimentaire</b><span>Qui répond du défaut d'affichage des allergènes devant le consommateur, et selon quel recours entre vous et le restaurateur.</span></li>
+    <li><b>Qualité de vendeur dans l'interface de commande</b><span>Détermine qui édite les conditions consommateurs, qui traite les réclamations et qui supporte le risque de rétrofacturation.</span></li>
+    <li><b>Choix de la structure juridique</b><span>En amont de tout le reste : la forme sociale commande les mentions légales, l'exposition patrimoniale, le régime de TVA et la catégorie de taille retenue pour plusieurs des échéances ci-dessus.</span></li>
+  </ul>
+</section>
+
+<section id="annexe">
+  <div class="sec-head"><span class="sec-num">A</span><h2>Annexe — audit du seul document présent</h2></div>
+  <p class="sec-note">Le fichier <code>index.html</code> de l'espace de travail contient la politique de confidentialité de <em>Shift Alarm</em>, application Android de réveil pour horaires postés, éditée par KILALI Noredine et datée du 8 juin 2026. Ce document est étranger à CommandeFacileVite ; il est audité ici à titre subsidiaire puisqu'il est la seule pièce disponible. Le constat d'ensemble est favorable : la politique est claire, sincère et cohérente avec une application déclarée sans collecte.</p>
+  <div class="scroller"><table class="reg">
+    <thead><tr><th class="c-doc">Point</th><th class="c-obl">Obligation</th><th class="c-st">Statut</th><th class="c-rk">Risque</th><th class="c-act">Action corrective</th><th class="c-ref">Texte de référence</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-l="Point">Mentions légales</td>
+        <td data-l="Obligation">Identification complète de l'éditeur et de l'hébergeur de la page.</td>
+        <td data-l="Statut"><span class="pill s-lac">Lacune</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">La page indique le nom de l'éditeur et une adresse électronique, mais ni domicile, ni téléphone, ni numéro d'immatriculation le cas échéant, ni identité de l'hébergeur de la page. Ajouter une section « Mentions légales » ou une page distincte.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 6-III-1 a) et e) LCEN</span></td>
+      </tr>
+      <tr>
+        <td data-l="Point">Absence de collecte</td>
+        <td data-l="Obligation">Exactitude de l'affirmation selon laquelle aucune donnée personnelle n'est collectée.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">L'affirmation est juridiquement défendable si l'éditeur n'a effectivement accès à aucune donnée : le stockage local sans transmission n'est pas un traitement mis en œuvre par l'éditeur. Deux vérifications s'imposent néanmoins. D'abord confirmer dans le manifeste que la permission d'accès au réseau est réellement absente, comme l'affirme la page. Ensuite tenir compte de la distribution : si l'application est publiée sur une boutique, l'éditeur reçoit des rapports de plantage et des statistiques par sa console, ce qui peut constituer un traitement, même agrégé. Le cas échéant, l'ajouter à la politique plutôt que d'écrire « aucune donnée ».</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 4-2 et art. 13 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Point">Stockage sur le terminal</td>
+        <td data-l="Obligation">Régime des actions d'inscription ou de lecture d'informations dans l'équipement terminal.</td>
+        <td data-l="Statut"><span class="pill s-conf">Conforme</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Le stockage local est strictement nécessaire à la fourniture du service expressément demandé et bénéficie donc de l'exemption. Une précision rédactionnelle serait toutefois utile : l'article 82 ne vise pas les seuls cookies mais toute inscription dans le terminal, y compris en application native. La formulation « concept inapplicable à une application mobile » est donc inexacte, sans conséquence sur la conformité de fond.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 82, alinéa 3, 2° de la loi n° 78-17</span></td>
+      </tr>
+      <tr>
+        <td data-l="Point">Droits des personnes</td>
+        <td data-l="Obligation">Information sur les droits et sur le droit d'introduire une réclamation.</td>
+        <td data-l="Statut"><span class="pill s-conf">Conforme</span></td>
+        <td data-l="Risque"><span class="rk rk-l">Faible</span></td>
+        <td data-l="Action corrective">Le raisonnement tenu est correct : sans traitement par l'éditeur, les droits d'accès et d'effacement à distance sont sans objet, et l'autorité de contrôle est identifiée. Ajouter une mention expresse du droit d'introduire une réclamation auprès de la CNIL rendrait la page complète sans en modifier l'économie.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 13-2 d) et art. 77 RGPD</span></td>
+      </tr>
+      <tr>
+        <td data-l="Point">Cohérence de la déclaration en boutique</td>
+        <td data-l="Obligation">Concordance entre la politique publiée et le formulaire de sécurité des données déclaré sur la boutique de distribution.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Une divergence entre la politique et la déclaration en boutique est le motif de retrait le plus courant, indépendamment de toute question de droit. Vérifier la concordance à chaque mise à jour.</td>
+        <td data-l="Texte de référence"><span class="ref">Règles de la boutique de distribution ; art. 5-1 a) RGPD (loyauté et transparence)</span></td>
+      </tr>
+      <tr>
+        <td data-l="Point">Évolution annoncée</td>
+        <td data-l="Obligation">Anticipation de la synchronisation en nuage mentionnée à la section 8.</td>
+        <td data-l="Statut"><span class="pill s-verif">À vérifier</span></td>
+        <td data-l="Risque"><span class="rk rk-m">Moyen</span></td>
+        <td data-l="Action corrective">Le jour où cette fonctionnalité est introduite, l'ensemble de la politique bascule : l'éditeur devient responsable de traitement, avec base légale, durées de conservation, sécurité, transferts éventuels et registre. Refondre la politique <em>avant</em> la mise en service, et non après.</td>
+        <td data-l="Texte de référence"><span class="ref">Art. 5, 6, 13, 30 et 32 RGPD</span></td>
+      </tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="questions">
+  <div class="sec-head"><span class="sec-num">?</span><h2>Ce qu'il me faut pour lever les « à vérifier »</h2></div>
+  <p class="sec-note">Sept éléments suffiraient à convertir la majorité des lignes « À vérifier » en constats fermes. Les quatre premiers correspondent aux gabarits laissés non remplis dans votre demande.</p>
+  <ul class="doc">
+    <li><b>Structure juridique retenue</b><span>Commande les mentions légales, la publicité du domicile personnel, la catégorie de taille et le régime de TVA.</span></li>
+    <li><b>Modèle de revenu : abonnement, commission, ou les deux</b><span>Commande l'assiette tarifaire, les conditions de règlement et, indirectement, la qualification au regard du droit des paiements.</span></li>
+    <li><b>Prestataire de paiement et schéma exact des flux de fonds</b><span>Qui encaisse, sur quel compte, pendant combien de temps, qui reverse. Élément déterminant du point le plus risqué du dossier.</span></li>
+    <li><b>Liste des outils tiers</b><span>Rubrique restée vide. Sans elle, ni l'inventaire des traceurs, ni la liste des sous-traitants ultérieurs, ni la cartographie des transferts ne peuvent être établis.</span></li>
+    <li><b>Effectif et chiffre d'affaires ou total de bilan</b><span>Détermine l'exemption de micro-entreprise en matière d'accessibilité, les dispenses du règlement plateformes-entreprises et du règlement sur les services numériques, et le calendrier d'émission des factures électroniques.</span></li>
+    <li><b>Marque blanche ou annuaire multi-restaurants</b><span>Une seule réponse résout quatre qualifications simultanément.</span></li>
+    <li><b>Les documents existants, même incomplets ou datés</b><span>Un jeu de conditions générales imparfait s'audite ; son absence ne se corrige que par une rédaction complète.</span></li>
+  </ul>
+</section>
+
+<footer class="end">
+  <p><strong>Portée et limites de cette analyse.</strong> Ce document a été établi le 20 août 2026 sans qu'aucune pièce contractuelle relative à CommandeFacileVite n'ait été communiquée, et alors que quatre données déterminantes de la demande sont demeurées non renseignées. Il constitue une grille d'audit à instruire et une cartographie des risques, non un constat de conformité ou de non-conformité.</p>
+  <p>Les références citées sont celles en vigueur à la date d'établissement. Plusieurs d'entre elles évoluent rapidement — calendrier de la facturation électronique, textes d'application de l'accessibilité, statut du cadre d'adéquation avec les États-Unis, transposition de la directive sur la cybersécurité — et doivent être vérifiées à la date de mise en œuvre.</p>
+  <p>Cette analyse ne constitue pas une consultation juridique au sens de la loi n° 71-1130 du 31 décembre 1971. Les points signalés comme nécessitant l'avis d'un avocat portent sur des qualifications juridiques qui engagent la responsabilité pénale ou la viabilité du modèle économique et appellent une consultation individualisée.</p>
+</footer>
+
+</div>
